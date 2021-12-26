@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_cabinet",
+  "pattern": [
+    "---",
+    "#C#"
+  ],
+  "key": {
+    "-": {
+      "item": "minecraft:acacia_slab"
+    },
+    "#": {
+      "item": "minecraft:acacia_planks"
+    },
+	"C": {
+      "tag": "forge:chests/wooden"
+	}
+  },
+  "result": {
+    "item": "sticksdeco:acacia_cabinet",
+    "count": 2
+  }
+}

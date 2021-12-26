@@ -1,0 +1,14 @@
+{
+	"replace": false,
+	"values": [
+		"sticksdeco:oak_cabinet",
+		"sticksdeco:spruce_cabinet",
+		"sticksdeco:birch_cabinet",
+		"sticksdeco:jungle_cabinet",
+		"sticksdeco:acacia_cabinet",
+		"sticksdeco:dark_oak_cabinet",
+		"sticksdeco:crimson_cabinet",
+		"sticksdeco:warped_cabinet",
+		"sticksdeco:dynasty_cabinet"
+	]
+}

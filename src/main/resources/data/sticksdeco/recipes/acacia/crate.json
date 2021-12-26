@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#-#",
+    "- -",
+	"#-#"
+  ],
+  "key": {
+    "-": {
+      "item": "minecraft:acacia_slab"
+    },
+    "#": {
+      "item": "minecraft:acacia_planks"
+    }
+  },
+  "result": {
+    "item": "sticksdeco:acacia_crate",
+    "count": 1
+  }
+}

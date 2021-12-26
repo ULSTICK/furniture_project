@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "sticksdeco:block/dynasty/slab/base"
+    },
+    "type=double": {
+      "model": "sticksdeco:block/dynasty_planks"
+    },
+    "type=top": {
+      "model": "sticksdeco:block/dynasty/slab/top"
+    }
+  }
+}

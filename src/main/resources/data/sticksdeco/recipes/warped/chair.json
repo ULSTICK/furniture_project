@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_chair",
+  "pattern": [
+    "-  ",
+    "-- ",
+    "// "
+  ],
+  "key": {
+    "-": {
+      "item": "minecraft:warped_slab"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "sticksdeco:warped_chair",
+    "count": 4
+  }
+}

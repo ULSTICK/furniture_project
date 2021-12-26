@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "sticksdeco:block/dynasty/pressure_plate/base"
+    },
+    "powered=true": {
+      "model": "sticksdeco:block/dynasty/pressure_plate/down"
+    }
+  }
+}

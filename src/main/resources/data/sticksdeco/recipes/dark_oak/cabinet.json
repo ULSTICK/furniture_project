@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_cabinet",
+  "pattern": [
+    "---",
+    "#C#"
+  ],
+  "key": {
+    "-": {
+      "item": "minecraft:dark_oak_slab"
+    },
+    "#": {
+      "item": "minecraft:dark_oak_planks"
+    },
+	"C": {
+      "tag": "forge:chests/wooden"
+	}
+  },
+  "result": {
+    "item": "sticksdeco:dark_oak_cabinet",
+    "count": 2
+  }
+}

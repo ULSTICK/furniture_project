@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "---",
+    "###"
+  ],
+  "key": {
+    "-": {
+      "item": "minecraft:gray_concrete"
+    },
+    "#": {
+      "tag": "forge:ingots/iron"
+    }
+  },
+  "result": {
+    "item": "sticksdeco:modern_counter",
+    "count": 4
+  }
+}

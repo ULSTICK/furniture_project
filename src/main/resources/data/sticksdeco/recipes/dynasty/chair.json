@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_chair",
+  "pattern": [
+    "-  ",
+    "-- ",
+    "// "
+  ],
+  "key": {
+    "-": {
+      "item": "sticksdeco:dynasty_slab"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "sticksdeco:dynasty_chair",
+    "count": 4
+  }
+}

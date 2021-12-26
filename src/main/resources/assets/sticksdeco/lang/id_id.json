@@ -1,0 +1,104 @@
+{
+	"block.sticksdeco.dynasty_log": "Gelondong Dinasti",
+	"block.sticksdeco.dynasty_wood": "Kayu Dinasti",
+	"block.sticksdeco.stripped_dynasty_log": "Gelondong Dinasti Kupas",
+	"block.sticksdeco.stripped_dynasty_wood": "Kayu Dinasti Kupas",
+	"block.sticksdeco.dynasty_leaves": "Dedaunan Dinasti",
+	"block.sticksdeco.dynasty_planks": "Papan Dinasti",
+	"block.sticksdeco.dynasty_stairs": "Tangga Dinasti",
+	"block.sticksdeco.dynasty_slab": "Lempeng Dinasti",
+	"block.sticksdeco.dynasty_fence": "Pagar Dinasti",
+	"block.sticksdeco.dynasty_fence_gate": "Pintu Pagar Dinasti",
+	"block.sticksdeco.dynasty_door": "Pintu Kayu Dinasti",
+	"block.sticksdeco.dynasty_trapdoor": "Pintu Jebakan Dinasti",
+	"block.sticksdeco.dynasty_button": "Tombol Dinasti",
+	"block.sticksdeco.dynasty_pressure_plate": "Papan Tekan Dinasti",
+	
+	"block.sticksdeco.oak_chair": "Kursi Ek",
+	"block.sticksdeco.oak_table": "Meja Ek",
+	"block.sticksdeco.oak_shelf": "Rak Ek",
+	"block.sticksdeco.oak_counter": "Konter Ek",
+	"block.sticksdeco.oak_cabinet": "Kabinet Ek",
+	
+	"block.sticksdeco.spruce_chair": "Kursi Cemara",
+	"block.sticksdeco.spruce_table": "Meja Cemara",
+	"block.sticksdeco.spruce_shelf": "Rak Cemara",
+	"block.sticksdeco.spruce_counter": "Konter Cemara",
+	
+	"block.sticksdeco.birch_chair": "Kursi Pinus",
+	"block.sticksdeco.birch_table": "Meja Pinus",
+	"block.sticksdeco.birch_shelf": "Rak Pinus",
+	"block.sticksdeco.birch_counter": "Konter Pinus",
+	"block.sticksdeco.birch_cabinet": "Kabinet Pinus",
+	
+	"block.sticksdeco.jungle_chair": "Kursi Hutan",
+	"block.sticksdeco.jungle_table": "Meja Hutan",
+	"block.sticksdeco.jungle_shelf": "Rak Hutan",
+	"block.sticksdeco.jungle_counter": "Konter Hutan",
+	"block.sticksdeco.jungle_cabinet": "Kabinet Hutan",
+	
+	"block.sticksdeco.acacia_chair": "Kursi Akasia",
+	"block.sticksdeco.acacia_table": "Meja Akasia",
+	"block.sticksdeco.acacia_shelf": "Rak Akasia",
+	"block.sticksdeco.acacia_counter": "Konter Akasia",
+	"block.sticksdeco.acacia_cabinet": "Kabinet Akasia",
+	
+	"block.sticksdeco.dark_oak_chair": "Kursi Ek Tua",
+	"block.sticksdeco.dark_oak_table": "Meja Ek Tua",
+	"block.sticksdeco.dark_oak_shelf": "Rak Ek Tua",
+	"block.sticksdeco.dark_oak_counter": "Konter Ek Tua",
+	"block.sticksdeco.dark_oak_cabinet": "Kabinet Ek Tua",
+	
+	"block.sticksdeco.crimson_chair": "Kursi Kirmizi",
+	"block.sticksdeco.crimson_table": "Meja Kirmizi",
+	"block.sticksdeco.crimson_shelf": "Rak Kirmizi",
+	"block.sticksdeco.crimson_counter": "Konter Kirmizi",
+	"block.sticksdeco.crimson_cabinet": "Kabinet Kirmizi",
+	
+	"block.sticksdeco.warped_chair": "Kursi Kerukut",
+	"block.sticksdeco.warped_table": "Meja Kerukut",
+	"block.sticksdeco.warped_shelf": "Rak Kerukut",
+	"block.sticksdeco.warped_counter": "Konter Kerukut",
+	"block.sticksdeco.warped_cabinet": "Kabinet Kerukut",
+	
+	"block.sticksdeco.dynasty_chair": "Kursi Dinasti",
+	"block.sticksdeco.dynasty_table": "Meja Dinasti",
+	"block.sticksdeco.dynasty_shelf": "Rak Dinasti",
+	"block.sticksdeco.dynasty_counter": "Konter Dinasti",
+	"block.sticksdeco.dynasty_cabinet": "Kabinet Dinasti",
+	
+	"block.sticksdeco.stone_chair": "Kursi Batu",
+	"block.sticksdeco.stone_table": "Meja Batu",
+	
+	"block.sticksdeco.modern_chair": "Kursi Modern",
+	"block.sticksdeco.modern_table": "Meja Modern",
+	"block.sticksdeco.modern_counter": "Konter Modern",
+	"block.sticksdeco.modern_cabinet": "Kabinet Modern",
+	
+	"block.sticksdeco.futuristic_chair": "Kursi Masa Depan",
+	"block.sticksdeco.futuristic_table": "Meja Masa Depan",
+	
+	"block.sticksdeco.oak_crate": "Kotak Peti Ek",
+	"block.sticksdeco.spruce_crate": "Kotak Peti Cemara",
+	"block.sticksdeco.birch_crate": "Kotak Peti Pinus",
+	"block.sticksdeco.jungle_crate": "Kotak Peti Hutan",
+	"block.sticksdeco.acacia_crate": "Kotak Peti Akasia",
+	"block.sticksdeco.dark_oak_crate": "Kotak Peti Ek Tua",
+	"block.sticksdeco.dynasty_crate": "Kotak Peti Dinasti",
+	"block.sticksdeco.crimson_crate": "Kotak Peti Kirmizi",
+	"block.sticksdeco.warped_crate": "Kotak Peti Kerukut",
+	"block.sticksdeco.metal_crate": "Kotak Peti Logam",
+	"block.sticksdeco.reinforced_trapdoor": "Pintu Jebakan Kuat",
+	
+	"item.sticksdeco.dark_iron_ingot": "Batangan Besi Gelap",
+	"item.sticksdeco.dark_iron_nugget": "Bongkahan Besi Gelap",
+	
+	"container.sticksdeco.crate": "Kotak Peti",
+	"container.sticksdeco.cabinet": "Kabinet",
+	
+	"tooltip.sticksdeco.cabinet_tip1": "§7Letakan saat [§6Merunduk§7]",
+	"tooltip.sticksdeco.cabinet_tip2": "§7untuk mengunakan model alternatif",
+	
+	"itemGroup.sticksdeco_palletes": "Stick's Deco§7:§r Pallet",
+	"itemGroup.sticksdeco_furnitures": "Stick's Deco§7:§r Furnitur"
+}

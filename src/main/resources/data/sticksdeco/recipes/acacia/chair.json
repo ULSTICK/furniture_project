@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_chair",
+  "pattern": [
+    "-  ",
+    "-- ",
+    "// "
+  ],
+  "key": {
+    "-": {
+      "item": "minecraft:acacia_slab"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "sticksdeco:acacia_chair",
+    "count": 4
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_cabinet",
+  "pattern": [
+    "---",
+    "#C#"
+  ],
+  "key": {
+    "-": {
+      "item": "sticksdeco:dynasty_slab"
+    },
+    "#": {
+      "item": "sticksdeco:dynasty_planks"
+    },
+	"C": {
+      "tag": "forge:chests/wooden"
+	}
+  },
+  "result": {
+    "item": "sticksdeco:dynasty_cabinet",
+    "count": 2
+  }
+}

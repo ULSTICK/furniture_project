@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "sticksdeco:block/metal_crate_open",
+    "bottom": "sticksdeco:block/metal_crate",
+    "side": "sticksdeco:block/metal_crate"
+  }
+}

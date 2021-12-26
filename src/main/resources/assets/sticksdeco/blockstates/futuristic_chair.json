@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "sticksdeco:block/futuristic_chair"
+    },
+    "facing=south": {
+      "model": "sticksdeco:block/futuristic_chair",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "sticksdeco:block/futuristic_chair",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "sticksdeco:block/futuristic_chair",
+      "y": 90
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+	"block.sticksdeco.dynasty_log": "Dynasty Log",
+	"block.sticksdeco.dynasty_wood": "Dynasty Wood",
+	"block.sticksdeco.stripped_dynasty_log": "Stripped Dynasty Log",
+	"block.sticksdeco.stripped_dynasty_wood": "Stripped Dynasty Wood",
+	"block.sticksdeco.dynasty_leaves": "Dynasty Leaves",
+	"block.sticksdeco.dynasty_planks": "Dynasty Planks",
+	"block.sticksdeco.dynasty_stairs": "Dynasty Stairs",
+	"block.sticksdeco.dynasty_slab": "Dynasty Slab",
+	"block.sticksdeco.dynasty_fence": "Dynasty Fence",
+	"block.sticksdeco.dynasty_fence_gate": "Dynasty Fence Gate",
+	"block.sticksdeco.dynasty_door": "Dynasty Door",
+	"block.sticksdeco.dynasty_trapdoor": "Dynasty Trapdoor",
+	"block.sticksdeco.dynasty_button": "Dynasty Button",
+	"block.sticksdeco.dynasty_pressure_plate": "Dynasty Pressure Plate",
+	
+	"block.sticksdeco.oak_chair": "Oak Chair",
+	"block.sticksdeco.oak_table": "Oak Table",
+	"block.sticksdeco.oak_shelf": "Oak Shelf",
+	"block.sticksdeco.oak_counter": "Oak Counter",
+	"block.sticksdeco.oak_cabinet": "Oak Cabinet",
+	
+	"block.sticksdeco.spruce_chair": "Spruce Chair",
+	"block.sticksdeco.spruce_table": "Spruce Table",
+	"block.sticksdeco.spruce_shelf": "Spruce Shelf",
+	"block.sticksdeco.spruce_counter": "Spruce Counter",
+	"block.sticksdeco.spruce_cabinet": "Spruce Cabinet",
+	
+	"block.sticksdeco.birch_chair": "Birch Chair",
+	"block.sticksdeco.birch_table": "Birch Table",
+	"block.sticksdeco.birch_shelf": "Birch Shelf",
+	"block.sticksdeco.birch_counter": "Birch Counter",
+	"block.sticksdeco.birch_cabinet": "Birch Cabinet",
+	
+	"block.sticksdeco.jungle_chair": "Jungle Chair",
+	"block.sticksdeco.jungle_table": "Jungle Table",
+	"block.sticksdeco.jungle_shelf": "Jungle Shelf",
+	"block.sticksdeco.jungle_counter": "Jungle Counter",
+	"block.sticksdeco.jungle_cabinet": "Jungle Cabinet",
+	
+	"block.sticksdeco.acacia_chair": "Acacia Chair",
+	"block.sticksdeco.acacia_table": "Acacia Table",
+	"block.sticksdeco.acacia_shelf": "Acacia Shelf",
+	"block.sticksdeco.acacia_counter": "Acacia Counter",
+	"block.sticksdeco.acacia_cabinet": "Acacia Cabinet",
+	
+	"block.sticksdeco.dark_oak_chair": "Dark Oak Chair",
+	"block.sticksdeco.dark_oak_table": "Dark Oak Table",
+	"block.sticksdeco.dark_oak_shelf": "Dark Oak Shelf",
+	"block.sticksdeco.dark_oak_counter": "Dark Oak Counter",
+	"block.sticksdeco.dark_oak_cabinet": "Dark Oak Cabinet",
+	
+	"block.sticksdeco.crimson_chair": "Crimson Chair",
+	"block.sticksdeco.crimson_table": "Crimson Table",
+	"block.sticksdeco.crimson_shelf": "Crimson Shelf",
+	"block.sticksdeco.crimson_counter": "Crimson Counter",
+	"block.sticksdeco.crimson_cabinet": "Crimson Cabinet",
+	
+	"block.sticksdeco.warped_chair": "Warped Chair",
+	"block.sticksdeco.warped_table": "Warped Table",
+	"block.sticksdeco.warped_shelf": "Warped Shelf",
+	"block.sticksdeco.warped_counter": "Warped Counter",
+	"block.sticksdeco.warped_cabinet": "Warped Cabinet",
+	
+	"block.sticksdeco.dynasty_chair": "Dynasty Chair",
+	"block.sticksdeco.dynasty_table": "Dynasty Table",
+	"block.sticksdeco.dynasty_shelf": "Dynasty Shelf",
+	"block.sticksdeco.dynasty_counter": "Dynasty Counter",
+	"block.sticksdeco.dynasty_cabinet": "Dynasty Cabinet",
+	
+	"block.sticksdeco.stone_chair": "Stone Chair",
+	"block.sticksdeco.stone_table": "Stone Table",
+	
+	"block.sticksdeco.modern_chair": "Modern Chair",
+	"block.sticksdeco.modern_table": "Modern Table",
+	"block.sticksdeco.modern_counter": "Modern Counter",
+	"block.sticksdeco.modern_cabinet": "Modern Cabinet",
+	
+	"block.sticksdeco.futuristic_chair": "Futuristic Chair",
+	"block.sticksdeco.futuristic_table": "Futuristic Table",
+	"block.sticksdeco.futuristic_counter": "Futuristic Counter",
+	"block.sticksdeco.futuristic_cabinet": "Futuristic Cabinet",
+	
+	"block.sticksdeco.oak_crate": "Oak Crate",
+	"block.sticksdeco.spruce_crate": "Spruce Crate",
+	"block.sticksdeco.birch_crate": "Birch Crate",
+	"block.sticksdeco.jungle_crate": "Jungle Crate",
+	"block.sticksdeco.acacia_crate": "Acacia Crate",
+	"block.sticksdeco.dark_oak_crate": "Dark Oak Crate",
+	"block.sticksdeco.dynasty_crate": "Dynasty Crate",
+	"block.sticksdeco.crimson_crate": "Crimson Crate",
+	"block.sticksdeco.warped_crate": "Warped Crate",
+	"block.sticksdeco.metal_crate": "Metal Crate",
+	"block.sticksdeco.reinforced_trapdoor": "Reinforced Trapdoor",
+	"block.sticksdeco.crafting_carpet": "Crafting Cloth",
+	
+	"item.sticksdeco.dark_iron_ingot": "Dark Iron Ingot",
+	"item.sticksdeco.dark_iron_nugget": "Dark Iron Nugget",
+	
+	"container.sticksdeco.crate": "Crate",
+	"container.sticksdeco.cabinet": "Cabinet",
+	
+	"tooltip.sticksdeco.cabinet_tip1": "§7Place while [§6Sneaking§7]",
+	"tooltip.sticksdeco.cabinet_tip2": "§7to use alternate model",
+	
+	"itemGroup.sticksdeco_palletes": "Stick's Deco§7:§r Palletes",
+	"itemGroup.sticksdeco_furnitures": "Stick's Deco§7:§r Furnitures"
+}

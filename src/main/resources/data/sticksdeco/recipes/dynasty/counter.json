@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_counter",
+  "pattern": [
+    "---",
+    "###"
+  ],
+  "key": {
+    "-": {
+      "item": "sticksdeco:dynasty_slab"
+    },
+    "#": {
+      "item": "sticksdeco:dynasty_planks"
+    }
+  },
+  "result": {
+    "item": "sticksdeco:dynasty_counter",
+    "count": 4
+  }
+}

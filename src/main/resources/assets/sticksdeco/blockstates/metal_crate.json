@@ -1,0 +1,54 @@
+{
+  "variants": {
+    "facing=up,open=false": {
+      "model": "sticksdeco:block/metal_crate"
+    },
+    "facing=down,open=false": {
+      "model": "sticksdeco:block/metal_crate"
+    },
+    "facing=north,open=false": {
+      "model": "sticksdeco:block/metal_crate"
+    },
+    "facing=south,open=false": {
+      "model": "sticksdeco:block/metal_crate"
+    },
+    "facing=east,open=false": {
+      "model": "sticksdeco:block/metal_crate"
+    },
+    "facing=west,open=false": {
+      "model": "sticksdeco:block/metal_crate"
+    },
+	
+    "facing=up,open=true": {
+      "model": "sticksdeco:block/metal_crate_open"
+    },
+    "facing=down,open=true": {
+      "model": "sticksdeco:block/metal_crate_open",
+      "x": 180,
+	  "uvlock": true
+    },
+    "facing=north,open=true": {
+      "model": "sticksdeco:block/metal_crate_open",
+      "x": 90,
+	  "uvlock": true
+    },
+    "facing=south,open=true": {
+      "model": "sticksdeco:block/metal_crate_open",
+      "x": 90,
+      "y": 180,
+	  "uvlock": true
+    },
+    "facing=east,open=true": {
+      "model": "sticksdeco:block/metal_crate_open",
+      "x": 90,
+      "y": 90,
+	  "uvlock": true
+    },
+    "facing=west,open=true": {
+      "model": "sticksdeco:block/metal_crate_open",
+      "x": 90,
+      "y": 270,
+	  "uvlock": true
+    }
+  }
+}

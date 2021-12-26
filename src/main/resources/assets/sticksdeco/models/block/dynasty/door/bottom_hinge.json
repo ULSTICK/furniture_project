@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_rh",
+  "textures": {
+    "top": "sticksdeco:block/dynasty_door_top",
+    "bottom": "sticksdeco:block/dynasty_door_bottom"
+  }
+}

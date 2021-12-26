@@ -1,0 +1,14 @@
+{
+	"replace": false,
+	"values": [
+		"sticksdeco:oak_crate",
+		"sticksdeco:spruce_crate",
+		"sticksdeco:birch_crate",
+		"sticksdeco:jungle_crate",
+		"sticksdeco:acacia_crate",
+		"sticksdeco:dark_oak_crate",
+		"sticksdeco:crimson_crate",
+		"sticksdeco:warped_crate",
+		"sticksdeco:dynasty_crate"
+	]
+}

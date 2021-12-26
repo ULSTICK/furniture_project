@@ -1,0 +1,15 @@
+{
+	"replace": false,
+	"values": [
+		"sticksdeco:oak_counter",
+		"sticksdeco:spruce_counter",
+		"sticksdeco:birch_counter",
+		"sticksdeco:jungle_counter",
+		"sticksdeco:acacia_counter",
+		"sticksdeco:dark_oak_counter",
+		"sticksdeco:crimson_counter",
+		"sticksdeco:warped_counter",
+		"sticksdeco:dynasty_counter",
+		"sticksdeco:modern_counter"
+	]
+}

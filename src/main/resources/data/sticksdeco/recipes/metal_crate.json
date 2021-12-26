@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#-#",
+    "-C-",
+	"#-#"
+  ],
+  "key": {
+    "-": {
+      "tag": "forge:ingots/iron"
+    },
+    "#": {
+      "item": "sticksdeco:dark_iron_ingot"
+    },
+    "C": {
+      "tag": "sticksdeco:wooden_crates"
+    }
+  },
+  "result": {
+    "item": "sticksdeco:metal_crate",
+    "count": 1
+  }
+}

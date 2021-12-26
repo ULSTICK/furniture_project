@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_cabinet",
+  "pattern": [
+    "---",
+    "#C#"
+  ],
+  "key": {
+    "-": {
+      "item": "minecraft:birch_slab"
+    },
+    "#": {
+      "item": "minecraft:birch_planks"
+    },
+	"C": {
+      "tag": "forge:chests/wooden"
+	}
+  },
+  "result": {
+    "item": "sticksdeco:birch_cabinet",
+    "count": 2
+  }
+}

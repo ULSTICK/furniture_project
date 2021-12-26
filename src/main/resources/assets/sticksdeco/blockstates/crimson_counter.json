@@ -1,0 +1,77 @@
+{
+  "variants": {
+    "north=false,east=false,south=false,west=false": {
+      "model": "sticksdeco:block/crimson_counter/base"
+    },
+	
+    "north=true,east=false,south=false,west=false": {
+      "model": "sticksdeco:block/crimson_counter/end"
+    },
+    "north=false,east=true,south=false,west=false": {
+      "model": "sticksdeco:block/crimson_counter/end",
+      "y": 90,
+      "uvlock": true
+    },
+    "north=false,east=false,south=true,west=false": {
+      "model": "sticksdeco:block/crimson_counter/end",
+      "y": 180,
+      "uvlock": true
+    },
+    "north=false,east=false,south=false,west=true": {
+      "model": "sticksdeco:block/crimson_counter/end",
+      "y": 270,
+      "uvlock": true
+    },
+	
+    "north=true,east=true,south=false,west=false": {
+      "model": "sticksdeco:block/crimson_counter/corner"
+    },
+    "north=false,east=true,south=true,west=false": {
+      "model": "sticksdeco:block/crimson_counter/corner",
+      "y": 90,
+      "uvlock": true
+    },
+    "north=false,east=false,south=true,west=true": {
+      "model": "sticksdeco:block/crimson_counter/corner",
+      "y": 180,
+      "uvlock": true
+    },
+    "north=true,east=false,south=false,west=true": {
+      "model": "sticksdeco:block/crimson_counter/corner",
+      "y": 270,
+      "uvlock": true
+    },
+	
+    "north=true,east=false,south=true,west=false": {
+      "model": "sticksdeco:block/crimson_counter/straight"
+    },
+    "north=false,east=true,south=false,west=true": {
+      "model": "sticksdeco:block/crimson_counter/straight",
+      "y": 90,
+      "uvlock": true
+    },
+	
+    "north=true,east=true,south=false,west=true": {
+      "model": "sticksdeco:block/crimson_counter/junction"
+    },
+    "north=true,east=true,south=true,west=false": {
+      "model": "sticksdeco:block/crimson_counter/junction",
+      "y": 90,
+      "uvlock": true
+    },
+    "north=false,east=true,south=true,west=true": {
+      "model": "sticksdeco:block/crimson_counter/junction",
+      "y": 180,
+      "uvlock": true
+    },
+    "north=true,east=false,south=true,west=true": {
+      "model": "sticksdeco:block/crimson_counter/junction",
+      "y": 270,
+      "uvlock": true
+    },
+	
+    "north=true,east=true,south=true,west=true": {
+      "model": "sticksdeco:block/crimson_counter/mid"
+    }
+  }
+}

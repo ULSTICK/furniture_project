@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_cabinet",
+  "pattern": [
+    "---",
+    "#C#"
+  ],
+  "key": {
+    "-": {
+      "item": "minecraft:crimson_slab"
+    },
+    "#": {
+      "item": "minecraft:crimson_planks"
+    },
+	"C": {
+      "tag": "forge:chests/wooden"
+	}
+  },
+  "result": {
+    "item": "sticksdeco:crimson_cabinet",
+    "count": 2
+  }
+}

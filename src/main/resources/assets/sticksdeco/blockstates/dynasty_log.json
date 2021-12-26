@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "sticksdeco:block/dynasty_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "sticksdeco:block/dynasty_log"
+    },
+    "axis=z": {
+      "model": "sticksdeco:block/dynasty_log",
+      "x": 90
+    }
+  }
+}

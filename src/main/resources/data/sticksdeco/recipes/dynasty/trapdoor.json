@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_trapdoor",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "sticksdeco:dynasty_planks"
+    }
+  },
+  "result": {
+    "item": "sticksdeco:dynasty_trapdoor",
+    "count": 2
+  }
+}

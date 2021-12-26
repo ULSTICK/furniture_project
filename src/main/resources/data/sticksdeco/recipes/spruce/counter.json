@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_counter",
+  "pattern": [
+    "---",
+    "###"
+  ],
+  "key": {
+    "-": {
+      "item": "minecraft:spruce_slab"
+    },
+    "#": {
+      "item": "minecraft:spruce_planks"
+    }
+  },
+  "result": {
+    "item": "sticksdeco:spruce_counter",
+    "count": 4
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#-#",
+    "- -",
+	"#-#"
+  ],
+  "key": {
+    "-": {
+      "item": "sticksdeco:dynasty_slab"
+    },
+    "#": {
+      "item": "sticksdeco:dynasty_planks"
+    }
+  },
+  "result": {
+    "item": "sticksdeco:dynasty_crate",
+    "count": 1
+  }
+}

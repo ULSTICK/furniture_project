@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "sticksdeco:dynasty_logs"
+    }
+  ],
+  "result": {
+    "item": "sticksdeco:dynasty_planks",
+    "count": 4
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "stone_chair",
+  "pattern": [
+    "-  ",
+    "-- ",
+    "// "
+  ],
+  "key": {
+    "-": {
+      "item": "minecraft:stone_slab"
+    },
+    "/": {
+      "item": "minecraft:cobblestone"
+    }
+  },
+  "result": {
+    "item": "sticksdeco:stone_chair",
+    "count": 4
+  }
+}

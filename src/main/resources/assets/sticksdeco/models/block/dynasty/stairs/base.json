@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "sticksdeco:block/dynasty_planks",
+    "top": "sticksdeco:block/dynasty_planks",
+    "side": "sticksdeco:block/dynasty_planks"
+  }
+}

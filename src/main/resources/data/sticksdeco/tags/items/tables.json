@@ -1,0 +1,17 @@
+{
+	"replace": false,
+	"values": [
+		"sticksdeco:oak_table",
+		"sticksdeco:spruce_table",
+		"sticksdeco:birch_table",
+		"sticksdeco:jungle_table",
+		"sticksdeco:acacia_table",
+		"sticksdeco:dark_oak_table",
+		"sticksdeco:crimson_table",
+		"sticksdeco:warped_table",
+		"sticksdeco:dynasty_table",
+		"sticksdeco:stone_table",
+		"sticksdeco:modern_table",
+		"sticksdeco:futuristic_table"
+	]
+}
