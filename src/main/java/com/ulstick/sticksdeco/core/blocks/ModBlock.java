@@ -88,6 +88,8 @@ public class ModBlock {
     public static final RegistryObject<Block> MODERN_COUNTER = Furniture.Counter("modern_counter", Material.METAL);
     public static final RegistryObject<Block> MODERN_CABINET = Furniture.Cabinet("modern_cabinet", Material.METAL);
 
+    public static final RegistryObject<Block> OAK_SHELF = Furniture.registerBlock("oak_shelf", () -> new ShelfBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).harvestTool(ToolType.AXE).strength(3.0F).sound(SoundType.WOOD)));
+
     public static final RegistryObject<Block> OAK_CRATE = Furniture.registerBlock("oak_crate", () -> new CrateBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).harvestTool(ToolType.AXE).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> SPRUCE_CRATE = Furniture.registerBlock("spruce_crate", () -> new CrateBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).harvestTool(ToolType.AXE).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> BIRCH_CRATE = Furniture.registerBlock("birch_crate", () -> new CrateBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_YELLOW).harvestTool(ToolType.AXE).strength(3.0F, 6.0F).sound(SoundType.WOOD)));

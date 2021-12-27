@@ -77,7 +77,6 @@ public class CabinetBlock extends ContainerBlock {
         if (lvt_5_1_ instanceof CabinetTileEntity) {
             ((CabinetTileEntity)lvt_5_1_).recheckOpen();
         }
-
     }
 
     @Nullable
@@ -107,7 +106,7 @@ public class CabinetBlock extends ContainerBlock {
     }
 
     public BlockState rotate(BlockState p_185499_1_, Rotation p_185499_2_) {
-        return (BlockState)p_185499_1_.setValue(FACING, p_185499_2_.rotate((Direction)p_185499_1_.getValue(FACING)));
+        return p_185499_1_.setValue(FACING, p_185499_2_.rotate(p_185499_1_.getValue(FACING)));
     }
 
     public BlockState mirror(BlockState p_185471_1_, Mirror p_185471_2_) {
@@ -115,7 +114,7 @@ public class CabinetBlock extends ContainerBlock {
     }
 
     public static boolean connectsToDirection(BlockState p_220253_0_, Direction p_220253_1_) {
-        return ((Direction)p_220253_0_.getValue(FACING)).getAxis() == p_220253_1_.getClockWise().getAxis();
+        return p_220253_0_.getValue(FACING).getAxis() == p_220253_1_.getClockWise().getAxis();
     }
 
     protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> p_206840_1_) {

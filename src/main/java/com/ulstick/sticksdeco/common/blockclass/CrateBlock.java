@@ -35,7 +35,7 @@ public class CrateBlock extends ContainerBlock {
 
     public CrateBlock(Properties p_i49996_1_) {
         super(p_i49996_1_);
-        this.registerDefaultState((BlockState)((BlockState)((BlockState)this.stateDefinition.any()).setValue(FACING, Direction.NORTH)).setValue(OPEN, false));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(OPEN, false));
     }
 
     public ActionResultType use(BlockState p_225533_1_, World p_225533_2_, BlockPos p_225533_3_, PlayerEntity p_225533_4_, Hand p_225533_5_, BlockRayTraceResult p_225533_6_) {
@@ -100,7 +100,7 @@ public class CrateBlock extends ContainerBlock {
     }
 
     public BlockState rotate(BlockState p_185499_1_, Rotation p_185499_2_) {
-        return (BlockState)p_185499_1_.setValue(FACING, p_185499_2_.rotate((Direction)p_185499_1_.getValue(FACING)));
+        return p_185499_1_.setValue(FACING, p_185499_2_.rotate((Direction)p_185499_1_.getValue(FACING)));
     }
 
     public BlockState mirror(BlockState p_185471_1_, Mirror p_185471_2_) {
@@ -112,7 +112,7 @@ public class CrateBlock extends ContainerBlock {
     }
 
     public BlockState getStateForPlacement(BlockItemUseContext p_196258_1_) {
-        return (BlockState)this.defaultBlockState().setValue(FACING, p_196258_1_.getNearestLookingDirection().getOpposite());
+        return this.defaultBlockState().setValue(FACING, p_196258_1_.getNearestLookingDirection().getOpposite());
     }
 
     static {
