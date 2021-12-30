@@ -5,7 +5,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 
-public class FlamaCounter extends CounterBlock{
+public class FlamaCounter extends CounterBlock {
     public FlamaCounter(Properties p_i48399_1_) {
         super(p_i48399_1_);
     }

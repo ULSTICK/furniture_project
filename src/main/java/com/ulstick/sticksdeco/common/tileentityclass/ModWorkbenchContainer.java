@@ -8,9 +8,7 @@ package com.ulstick.sticksdeco.common.tileentityclass;
 import java.util.Optional;
 
 import com.ulstick.sticksdeco.common.ModTags;
-import com.ulstick.sticksdeco.core.blocks.ModBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.ServerPlayerEntity;
@@ -28,6 +26,7 @@ import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.item.crafting.RecipeBookCategory;
 import net.minecraft.item.crafting.RecipeItemHelper;
 import net.minecraft.network.play.server.SSetSlotPacket;
+import net.minecraft.tags.ITag;
 import net.minecraft.util.IWorldPosCallable;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
@@ -114,8 +113,12 @@ public class ModWorkbenchContainer extends RecipeBookContainer<CraftingInventory
         });
     }
 
-    public boolean stillValid(PlayerEntity p_75145_1_) {
-        return stillValid(this.access, p_75145_1_, ModBlock.CRAFTING_CARPET.get());
+    public boolean stillValid(PlayerEntity playerEntity) {
+        IWorldPosCallable pLevelPos = this.access;
+        return pLevelPos.evaluate((p_216960_2_, p_216960_3_) -> {
+            return !p_216960_2_.getBlockState(p_216960_3_).is(ModTags.Blocks.CRAFTING_TABLES) ? false : playerEntity.distanceToSqr((double)p_216960_3_.getX() + 0.5D, (double)p_216960_3_.getY() + 0.5D, (double)p_216960_3_.getZ() + 0.5D) <= 64.0D;
+        }, true);
+        //return getStillValid(this.access, playerEntity, ModTags.Blocks.CRAFTING_TABLES);
     }
 
     public ItemStack quickMoveStack(PlayerEntity p_82846_1_, int p_82846_2_) {

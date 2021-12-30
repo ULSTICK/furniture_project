@@ -99,6 +99,7 @@
 	
 	"container.sticksdeco.crate": "Crate",
 	"container.sticksdeco.cabinet": "Cabinet",
+	"container.sticksdeco.shelf": "Shelf",
 	
 	"tooltip.sticksdeco.cabinet_tip1": "§7Place while [§6Sneaking§7]",
 	"tooltip.sticksdeco.cabinet_tip2": "§7to use alternate model",
