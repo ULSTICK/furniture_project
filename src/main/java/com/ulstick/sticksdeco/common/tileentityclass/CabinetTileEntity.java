@@ -32,22 +32,20 @@ public class CabinetTileEntity extends LockableLootTileEntity {
         this(ModTileEntity.CABINET_TILE.get());
     }
 
-    public CompoundNBT save(CompoundNBT p_189515_1_) {
-        super.save(p_189515_1_);
-        if (!this.trySaveLootTable(p_189515_1_)) {
-            ItemStackHelper.saveAllItems(p_189515_1_, this.items);
+    public CompoundNBT save(CompoundNBT nbt) {
+        super.save(nbt);
+        if (!this.trySaveLootTable(nbt)) {
+            ItemStackHelper.saveAllItems(nbt, this.items);
         }
-
-        return p_189515_1_;
+        return nbt;
     }
 
-    public void load(BlockState p_230337_1_, CompoundNBT p_230337_2_) {
-        super.load(p_230337_1_, p_230337_2_);
+    public void load(BlockState state, CompoundNBT nbt) {
+        super.load(state, nbt);
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
-        if (!this.tryLoadLootTable(p_230337_2_)) {
-            ItemStackHelper.loadAllItems(p_230337_2_, this.items);
+        if (!this.tryLoadLootTable(nbt)) {
+            ItemStackHelper.loadAllItems(nbt, this.items);
         }
-
     }
 
     public int getContainerSize() {
@@ -114,14 +112,12 @@ public class CabinetTileEntity extends LockableLootTileEntity {
                 this.updateBlockState(lvt_4_1_, false);
             }
         }
-
     }
 
     public void stopOpen(PlayerEntity p_174886_1_) {
         if (!p_174886_1_.isSpectator()) {
             --this.openCount;
         }
-
     }
 
     private void updateBlockState(BlockState p_213963_1_, boolean p_213963_2_) {

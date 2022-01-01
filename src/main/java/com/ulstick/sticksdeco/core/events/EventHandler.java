@@ -9,6 +9,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.BasicTrade;
 import net.minecraftforge.event.village.WandererTradesEvent;
+import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
@@ -24,5 +25,4 @@ public class EventHandler {
         event.getGenericTrades().add(new BasicTrade(2, new ItemStack(ModBlock.DYNASTY_LOG.get(), 6), 16, 10));
         event.getRareTrades().add(new BasicTrade(2, new ItemStack(ModBlock.DYNASTY_LOG.get(), 8), 8, 10));
     }
-
 }

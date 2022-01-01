@@ -2,10 +2,7 @@ package com.ulstick.sticksdeco.common.blockclass;
 
 import com.ulstick.sticksdeco.common.tileentityclass.CabinetTileEntity;
 import com.ulstick.sticksdeco.core.blocks.ModBlockStateProperties;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockRenderType;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ContainerBlock;
+import net.minecraft.block.*;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
@@ -33,7 +30,7 @@ import javax.annotation.Nullable;
 import java.util.Objects;
 import java.util.Random;
 
-public class CabinetBlock extends ContainerBlock {
+public class CabinetBlock extends ContainerBlock implements IWaterLoggable {
     public static final DirectionProperty FACING;
     public static final BooleanProperty WATERLOGGED;
     public static final BooleanProperty OPEN;

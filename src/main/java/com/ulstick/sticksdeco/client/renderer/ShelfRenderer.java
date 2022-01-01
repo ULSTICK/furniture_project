@@ -37,10 +37,10 @@ public class ShelfRenderer extends TileEntityRenderer<ShelfTileEntity> {
 
         ClientPlayerEntity player = MC.player;
         int lightLevel = getLightLevel(tileEntity.getLevel(), tileEntity.getBlockPos());
-        renderItem(tileEntity.getItem(0), getRotatedVector(tileEntity, 0), Vector3f.YP.rotationDegrees(getDirection(tileEntity)), matrixStack, bufferIn, partialTicks, OverlayIn, lightLevel, 0.375f);
-        renderItem(tileEntity.getItem(1), getRotatedVector(tileEntity, 1), Vector3f.YP.rotationDegrees(getDirection(tileEntity)), matrixStack, bufferIn, partialTicks, OverlayIn, lightLevel, 0.375f);
-        renderItem(tileEntity.getItem(2), getRotatedVector(tileEntity, 2), Vector3f.YP.rotationDegrees(getDirection(tileEntity)), matrixStack, bufferIn, partialTicks, OverlayIn, lightLevel, 0.375f);
-        renderItem(tileEntity.getItem(3), getRotatedVector(tileEntity, 3), Vector3f.YP.rotationDegrees(getDirection(tileEntity)), matrixStack, bufferIn, partialTicks, OverlayIn, lightLevel, 0.375f);
+        renderItem(tileEntity.getItem(0), getRotatedVector(tileEntity, 0), Vector3f.YP.rotationDegrees(getDirection(tileEntity)), matrixStack, bufferIn, partialTicks, OverlayIn, lightLevel, 0.25f);
+        renderItem(tileEntity.getItem(1), getRotatedVector(tileEntity, 1), Vector3f.YP.rotationDegrees(getDirection(tileEntity)), matrixStack, bufferIn, partialTicks, OverlayIn, lightLevel, 0.25f);
+        renderItem(tileEntity.getItem(2), getRotatedVector(tileEntity, 2), Vector3f.YP.rotationDegrees(getDirection(tileEntity)), matrixStack, bufferIn, partialTicks, OverlayIn, lightLevel, 0.25f);
+        renderItem(tileEntity.getItem(3), getRotatedVector(tileEntity, 3), Vector3f.YP.rotationDegrees(getDirection(tileEntity)), matrixStack, bufferIn, partialTicks, OverlayIn, lightLevel, 0.25f);
     }
 
     private float getDirection(ShelfTileEntity tileEntity) {
@@ -53,7 +53,7 @@ public class ShelfRenderer extends TileEntityRenderer<ShelfTileEntity> {
             case SOUTH:
                 return 0f;
             case EAST:
-                return 170f;
+                return 270f;
             case WEST:
                 return 90f;
         }
