@@ -21,6 +21,6 @@ public class ShelfItem extends BlockItem {
     @OnlyIn(Dist.CLIENT)
     public void appendHoverText(ItemStack stack, @Nullable World worlder, List<ITextComponent> tooltip, ITooltipFlag flags) {
         super.appendHoverText(stack, worlder, tooltip, flags);
-        tooltip.add(new TranslationTextComponent("\u00A74[WIP]"));
+        tooltip.add(new TranslationTextComponent("\u00A7c[WIP]"));
     }
 }

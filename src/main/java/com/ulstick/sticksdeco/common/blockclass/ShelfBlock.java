@@ -34,19 +34,15 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.network.FMLNetworkConstants;
 import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
 public class ShelfBlock extends ContainerBlock implements IWaterLoggable, ITileEntityProvider {
     public static final DirectionProperty FACING;
     public static final BooleanProperty WATERLOGGED;
     public static final EnumProperty<SlabType> TYPE;
-    protected static final VoxelShape NORTH_AABB;
-    protected static final VoxelShape SOUTH_AABB;
-    protected static final VoxelShape EAST_AABB;
-    protected static final VoxelShape WEST_AABB;
 
     public ShelfBlock(Properties p_i48446_1_) {
         super(p_i48446_1_);
@@ -56,13 +52,48 @@ public class ShelfBlock extends ContainerBlock implements IWaterLoggable, ITileE
     public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity playerEntity, Hand handIn, BlockRayTraceResult hit) {
         if(!worldIn.isClientSide()) {
             TileEntity tileEntity = worldIn.getBlockEntity(pos);
-            if(playerEntity.isCrouching()) return ActionResultType.PASS;
 
             if(tileEntity instanceof ShelfTileEntity) {
-                INamedContainerProvider containerProvider = createContainerProvider(worldIn, pos);
+                ShelfTileEntity shelfTile = (ShelfTileEntity)tileEntity;
+                ItemStack hand = playerEntity.getItemInHand(handIn);
+                Direction facing = state.getValue(FACING);
 
-                NetworkHooks.openGui(((ServerPlayerEntity) playerEntity), containerProvider, tileEntity.getBlockPos());
-                return ActionResultType.SUCCESS;
+                //Chooses what slot to access
+                int sloter = 0;
+                if ((hit.getLocation().y-pos.getY()) < 0.5d) { sloter = 2;}
+                switch (facing) {
+                    case NORTH:
+                    default:
+                        if ((hit.getLocation().x-pos.getX()) < 0.5d) { sloter++;}
+                        break;
+                    case SOUTH:
+                        if ((hit.getLocation().x-pos.getX()) > 0.5d) { sloter++;}
+                        break;
+                    case EAST:
+                        if ((hit.getLocation().z-pos.getZ()) < 0.5d) { sloter++;}
+                        break;
+                    case WEST:
+                        if ((hit.getLocation().z-pos.getZ()) > 0.5d) { sloter++;}
+                        break;
+                }
+
+                // Temporary Container
+                if (playerEntity.isCrouching()) {
+                    INamedContainerProvider containerProvider = createContainerProvider(worldIn, pos);
+                    NetworkHooks.openGui(((ServerPlayerEntity) playerEntity), containerProvider, tileEntity.getBlockPos());
+                    return ActionResultType.SUCCESS;
+                }
+
+                if(!hand.equals(ItemStack.EMPTY)){
+                    //Places item when the player have an item in hand
+                    shelfTile.placeItem(playerEntity, sloter);
+                    return ActionResultType.CONSUME;
+                } else {
+                    //Takes item when the player don't have an item in hand
+                    shelfTile.takeItem(playerEntity, sloter);
+                    return ActionResultType.SUCCESS;
+                }
+
             }
             throw new IllegalStateException("GUI Container Provider Missing!");
         }
@@ -108,11 +139,6 @@ public class ShelfBlock extends ContainerBlock implements IWaterLoggable, ITileE
     }
 
     @Override
-    public void animateTick(BlockState p_180655_1_, World p_180655_2_, BlockPos p_180655_3_, Random p_180655_4_) {
-        super.animateTick(p_180655_1_, p_180655_2_, p_180655_3_, p_180655_4_);
-    }
-
-    @Override
     public BlockRenderType getRenderShape(BlockState p_149645_1_) {
         return BlockRenderType.MODEL;
     }
@@ -142,8 +168,6 @@ public class ShelfBlock extends ContainerBlock implements IWaterLoggable, ITileE
     public SlabType getStateSlab(BlockItemUseContext context) {
         BlockPos pos = context.getClickedPos();
 
-        FluidState fluidState = context.getLevel().getFluidState(pos);
-        BlockState state = this.defaultBlockState().setValue(TYPE, SlabType.BOTTOM).setValue(WATERLOGGED, fluidState.getType() == Fluids.WATER);
         Direction clickedFace = context.getClickedFace();
         if (clickedFace != Direction.DOWN && (clickedFace == Direction.UP || !(context.getClickLocation().y - (double)pos.getY() > 0.5D))) {
             return SlabType.BOTTOM;
@@ -200,9 +224,5 @@ public class ShelfBlock extends ContainerBlock implements IWaterLoggable, ITileE
         FACING = BlockStateProperties.HORIZONTAL_FACING;
         WATERLOGGED = BlockStateProperties.WATERLOGGED;
         TYPE = BlockStateProperties.SLAB_TYPE;
-        NORTH_AABB = VoxelShapes.or(box(0.0D, 0.0D, 8.0D, 16.0D, 2.0D, 16.0D), box(0.0D, 8.0D, 8.0D, 16.0D, 10.0D, 16.0D));
-        SOUTH_AABB = VoxelShapes.or(box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 8.0D), box(0.0D, 8.0D, 0.0D, 16.0D, 10.0D, 8.0D));
-        EAST_AABB = VoxelShapes.or(box(0.0D, 0.0D, 0.0D, 8.0D, 2.0D, 16.0D), box(0.0D, 8.0D, 0.0D, 8.0D, 10.0D, 16.0D));
-        WEST_AABB = VoxelShapes.or(box(8.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D), box(8.0D, 8.0D, 0.0D, 16.0D, 10.0D, 16.0D));
     }
 }
