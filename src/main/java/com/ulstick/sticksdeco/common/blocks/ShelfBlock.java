@@ -106,7 +106,6 @@ public class ShelfBlock extends ContainerBlock implements IWaterLoggable, ITileE
             TileEntity lvt_6_1_ = worldIn.getBlockEntity(pos);
             if (lvt_6_1_ instanceof IInventory) {
                 InventoryHelper.dropContents(worldIn, pos, (IInventory) lvt_6_1_);
-                dropResources(state, worldIn, pos, lvt_6_1_);
             }
             super.onRemove(state, worldIn, pos, state1, bool);
         }

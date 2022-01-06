@@ -116,7 +116,6 @@ public class ShelfTileEntity extends LockableLootTileEntity {
         if (this.level == null) return;
 
         this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), Constants.BlockFlags.BLOCK_UPDATE);
-        this.getUpdatePacket();
     }
 
     @Override
