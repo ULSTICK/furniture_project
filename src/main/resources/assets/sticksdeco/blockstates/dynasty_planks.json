@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "sticksdeco:block/dynasty_planks"
+      "model": "sticksdeco:block/dynasty/planks"
     }
   }
 }

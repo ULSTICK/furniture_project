@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/birch_counter/cabinet",
+    "parent": "sticksdeco:block/birch/counter/cabinet",
     "gui_light": "side",
     "display": {
         "gui": {

@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/jungle_counter/straight",
+    "parent": "sticksdeco:block/jungle/counter/straight",
     "gui_light": "side",
     "display": {
         "gui": {

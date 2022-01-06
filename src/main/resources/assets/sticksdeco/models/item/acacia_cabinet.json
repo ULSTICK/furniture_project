@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/acacia_counter/cabinet",
+    "parent": "sticksdeco:block/acacia/counter/cabinet",
     "gui_light": "side",
     "display": {
         "gui": {

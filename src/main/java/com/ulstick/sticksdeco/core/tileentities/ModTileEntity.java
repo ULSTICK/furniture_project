@@ -1,9 +1,9 @@
 package com.ulstick.sticksdeco.core.tileentities;
 
 import com.ulstick.sticksdeco.SticksDeco;
-import com.ulstick.sticksdeco.common.tileentityclass.CabinetTileEntity;
-import com.ulstick.sticksdeco.common.tileentityclass.CrateTileEntity;
-import com.ulstick.sticksdeco.common.tileentityclass.ShelfTileEntity;
+import com.ulstick.sticksdeco.common.tileentities.CabinetTileEntity;
+import com.ulstick.sticksdeco.common.tileentities.CrateTileEntity;
+import com.ulstick.sticksdeco.common.tileentities.ShelfTileEntity;
 import com.ulstick.sticksdeco.core.blocks.ModBlock;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -22,7 +22,10 @@ public class ModTileEntity {
             () -> TileEntityType.Builder.of(CabinetTileEntity::new, ModBlock.OAK_CABINET.get()).build(null));
 
     public static RegistryObject<TileEntityType<ShelfTileEntity>> SHELF_TILE = TILE_ENTITIES.register("shelf_tile_entity",
-            () -> TileEntityType.Builder.of(ShelfTileEntity::new, ModBlock.OAK_SHELF.get()).build(null));
+            () -> TileEntityType.Builder.of(ShelfTileEntity::new,
+                            ModBlock.OAK_SHELF.get(), ModBlock.SPRUCE_SHELF.get(), ModBlock.BIRCH_SHELF.get(), ModBlock.JUNGLE_SHELF.get(), ModBlock.ACACIA_SHELF.get(), ModBlock.DARK_OAK_SHELF.get(),
+                            ModBlock.CRIMSON_SHELF.get(), ModBlock.WARPED_SHELF.get(), ModBlock.DYNASTY_SHELF.get(), ModBlock.STONE_SHELF.get(), ModBlock.MODERN_SHELF.get())
+                    .build(null));
 
     public static void register(IEventBus eventBus) {
         TILE_ENTITIES.register(eventBus);

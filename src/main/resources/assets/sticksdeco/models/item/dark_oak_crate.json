@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/dark_oak_crate",
+    "parent": "sticksdeco:block/dark_oak/crate",
     "gui_light": "side",
     "display": {
         "gui": {

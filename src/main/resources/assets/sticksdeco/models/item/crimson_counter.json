@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/crimson_counter/straight",
+    "parent": "sticksdeco:block/crimson/counter/straight",
     "gui_light": "side",
     "display": {
         "gui": {

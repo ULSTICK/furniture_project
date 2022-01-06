@@ -1,77 +1,77 @@
 {
   "variants": {
     "north=false,east=false,south=false,west=false": {
-      "model": "sticksdeco:block/futuristic_table/base"
+      "model": "sticksdeco:block/futuristic/table/base"
     },
 	
     "north=true,east=false,south=false,west=false": {
-      "model": "sticksdeco:block/futuristic_table/end"
+      "model": "sticksdeco:block/futuristic/table/end"
     },
     "north=false,east=true,south=false,west=false": {
-      "model": "sticksdeco:block/futuristic_table/end",
+      "model": "sticksdeco:block/futuristic/table/end",
       "y": 90,
       "uvlock": false
     },
     "north=false,east=false,south=true,west=false": {
-      "model": "sticksdeco:block/futuristic_table/end",
+      "model": "sticksdeco:block/futuristic/table/end",
       "y": 180,
       "uvlock": false
     },
     "north=false,east=false,south=false,west=true": {
-      "model": "sticksdeco:block/futuristic_table/end",
+      "model": "sticksdeco:block/futuristic/table/end",
       "y": 270,
       "uvlock": false
     },
 	
     "north=true,east=true,south=false,west=false": {
-      "model": "sticksdeco:block/futuristic_table/corner"
+      "model": "sticksdeco:block/futuristic/table/corner"
     },
     "north=false,east=true,south=true,west=false": {
-      "model": "sticksdeco:block/futuristic_table/corner",
+      "model": "sticksdeco:block/futuristic/table/corner",
       "y": 90,
       "uvlock": false
     },
     "north=false,east=false,south=true,west=true": {
-      "model": "sticksdeco:block/futuristic_table/corner",
+      "model": "sticksdeco:block/futuristic/table/corner",
       "y": 180,
       "uvlock": false
     },
     "north=true,east=false,south=false,west=true": {
-      "model": "sticksdeco:block/futuristic_table/corner",
+      "model": "sticksdeco:block/futuristic/table/corner",
       "y": 270,
       "uvlock": false
     },
 	
     "north=true,east=false,south=true,west=false": {
-      "model": "sticksdeco:block/futuristic_table/straight"
+      "model": "sticksdeco:block/futuristic/table/straight"
     },
     "north=false,east=true,south=false,west=true": {
-      "model": "sticksdeco:block/futuristic_table/straight",
+      "model": "sticksdeco:block/futuristic/table/straight",
       "y": 90,
       "uvlock": false
     },
 	
     "north=true,east=true,south=false,west=true": {
-      "model": "sticksdeco:block/futuristic_table/junction"
+      "model": "sticksdeco:block/futuristic/table/junction"
     },
     "north=true,east=true,south=true,west=false": {
-      "model": "sticksdeco:block/futuristic_table/junction",
+      "model": "sticksdeco:block/futuristic/table/junction",
       "y": 90,
       "uvlock": false
     },
     "north=false,east=true,south=true,west=true": {
-      "model": "sticksdeco:block/futuristic_table/junction",
+      "model": "sticksdeco:block/futuristic/table/junction",
       "y": 180,
       "uvlock": false
     },
     "north=true,east=false,south=true,west=true": {
-      "model": "sticksdeco:block/futuristic_table/junction",
+      "model": "sticksdeco:block/futuristic/table/junction",
       "y": 270,
       "uvlock": false
     },
 	
     "north=true,east=true,south=true,west=true": {
-      "model": "sticksdeco:block/futuristic_table/mid"
+      "model": "sticksdeco:block/futuristic/table/mid"
     }
   }
 }

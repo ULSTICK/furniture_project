@@ -1,8 +1,7 @@
 package com.ulstick.sticksdeco.core.blocks;
 
-import com.ulstick.sticksdeco.common.blockclass.*;
-import com.ulstick.sticksdeco.common.itemclass.CabinetItem;
-import com.ulstick.sticksdeco.common.itemclass.ShelfItem;
+import com.ulstick.sticksdeco.common.blocks.*;
+import com.ulstick.sticksdeco.common.items.CabinetItem;
 import com.ulstick.sticksdeco.core.ModItemGroup;
 import com.ulstick.sticksdeco.core.items.ModItems;
 
@@ -76,7 +75,7 @@ public class Furniture {
         SoundType sound = getSound(material);
         RegistryObject<Block> block = ModBlock.BLOCKS.register(name,
                 () -> new ShelfBlock(AbstractBlock.Properties.of(material, MaterialColor.COLOR_BROWN).harvestTool(tool).strength(2.0F, 3.0F).noOcclusion().sound(sound)));
-        ModItems.ITEMS.register(name, () -> new ShelfItem(block.get(),
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
                 new Item.Properties().tab(ModItemGroup.TAB_STICKSDECO_FURNITURES)));
         return block;
     }

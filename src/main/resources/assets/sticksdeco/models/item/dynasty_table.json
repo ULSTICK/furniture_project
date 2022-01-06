@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/dynasty_table/base",
+    "parent": "sticksdeco:block/dynasty/table/base",
     "gui_light": "side",
     "display": {
         "gui": {

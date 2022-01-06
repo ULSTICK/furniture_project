@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/acacia_crate",
+    "parent": "sticksdeco:block/acacia/crate",
     "gui_light": "side",
     "display": {
         "gui": {

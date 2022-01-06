@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=north": {
-      "model": "sticksdeco:block/dynasty_chair"
+      "model": "sticksdeco:block/dynasty/chair"
     },
     "facing=south": {
-      "model": "sticksdeco:block/dynasty_chair",
+      "model": "sticksdeco:block/dynasty/chair",
       "y": 180
     },
     "facing=west": {
-      "model": "sticksdeco:block/dynasty_chair",
+      "model": "sticksdeco:block/dynasty/chair",
       "y": 270
     },
     "facing=east": {
-      "model": "sticksdeco:block/dynasty_chair",
+      "model": "sticksdeco:block/dynasty/chair",
       "y": 90
     }
   }

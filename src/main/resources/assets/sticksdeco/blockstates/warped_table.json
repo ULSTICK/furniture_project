@@ -1,77 +1,77 @@
 {
   "variants": {
     "north=false,east=false,south=false,west=false": {
-      "model": "sticksdeco:block/warped_table/base"
+      "model": "sticksdeco:block/warped/table/base"
     },
 	
     "north=true,east=false,south=false,west=false": {
-      "model": "sticksdeco:block/warped_table/end"
+      "model": "sticksdeco:block/warped/table/end"
     },
     "north=false,east=true,south=false,west=false": {
-      "model": "sticksdeco:block/warped_table/end",
+      "model": "sticksdeco:block/warped/table/end",
       "y": 90,
       "uvlock": true
     },
     "north=false,east=false,south=true,west=false": {
-      "model": "sticksdeco:block/warped_table/end",
+      "model": "sticksdeco:block/warped/table/end",
       "y": 180,
       "uvlock": true
     },
     "north=false,east=false,south=false,west=true": {
-      "model": "sticksdeco:block/warped_table/end",
+      "model": "sticksdeco:block/warped/table/end",
       "y": 270,
       "uvlock": true
     },
 	
     "north=true,east=true,south=false,west=false": {
-      "model": "sticksdeco:block/warped_table/corner"
+      "model": "sticksdeco:block/warped/table/corner"
     },
     "north=false,east=true,south=true,west=false": {
-      "model": "sticksdeco:block/warped_table/corner",
+      "model": "sticksdeco:block/warped/table/corner",
       "y": 90,
       "uvlock": true
     },
     "north=false,east=false,south=true,west=true": {
-      "model": "sticksdeco:block/warped_table/corner",
+      "model": "sticksdeco:block/warped/table/corner",
       "y": 180,
       "uvlock": true
     },
     "north=true,east=false,south=false,west=true": {
-      "model": "sticksdeco:block/warped_table/corner",
+      "model": "sticksdeco:block/warped/table/corner",
       "y": 270,
       "uvlock": true
     },
 	
     "north=true,east=false,south=true,west=false": {
-      "model": "sticksdeco:block/warped_table/straight"
+      "model": "sticksdeco:block/warped/table/straight"
     },
     "north=false,east=true,south=false,west=true": {
-      "model": "sticksdeco:block/warped_table/straight",
+      "model": "sticksdeco:block/warped/table/straight",
       "y": 90,
       "uvlock": true
     },
 	
     "north=true,east=true,south=false,west=true": {
-      "model": "sticksdeco:block/warped_table/junction"
+      "model": "sticksdeco:block/warped/table/junction"
     },
     "north=true,east=true,south=true,west=false": {
-      "model": "sticksdeco:block/warped_table/junction",
+      "model": "sticksdeco:block/warped/table/junction",
       "y": 90,
       "uvlock": true
     },
     "north=false,east=true,south=true,west=true": {
-      "model": "sticksdeco:block/warped_table/junction",
+      "model": "sticksdeco:block/warped/table/junction",
       "y": 180,
       "uvlock": true
     },
     "north=true,east=false,south=true,west=true": {
-      "model": "sticksdeco:block/warped_table/junction",
+      "model": "sticksdeco:block/warped/table/junction",
       "y": 270,
       "uvlock": true
     },
 	
     "north=true,east=true,south=true,west=true": {
-      "model": "sticksdeco:block/warped_table/mid"
+      "model": "sticksdeco:block/warped/table/mid"
     }
   }
 }

@@ -1,77 +1,77 @@
 {
   "variants": {
     "north=false,east=false,south=false,west=false": {
-      "model": "sticksdeco:block/birch_table/base"
+      "model": "sticksdeco:block/birch/table/base"
     },
 	
     "north=true,east=false,south=false,west=false": {
-      "model": "sticksdeco:block/birch_table/end"
+      "model": "sticksdeco:block/birch/table/end"
     },
     "north=false,east=true,south=false,west=false": {
-      "model": "sticksdeco:block/birch_table/end",
+      "model": "sticksdeco:block/birch/table/end",
       "y": 90,
       "uvlock": true
     },
     "north=false,east=false,south=true,west=false": {
-      "model": "sticksdeco:block/birch_table/end",
+      "model": "sticksdeco:block/birch/table/end",
       "y": 180,
       "uvlock": true
     },
     "north=false,east=false,south=false,west=true": {
-      "model": "sticksdeco:block/birch_table/end",
+      "model": "sticksdeco:block/birch/table/end",
       "y": 270,
       "uvlock": true
     },
 	
     "north=true,east=true,south=false,west=false": {
-      "model": "sticksdeco:block/birch_table/corner"
+      "model": "sticksdeco:block/birch/table/corner"
     },
     "north=false,east=true,south=true,west=false": {
-      "model": "sticksdeco:block/birch_table/corner",
+      "model": "sticksdeco:block/birch/table/corner",
       "y": 90,
       "uvlock": true
     },
     "north=false,east=false,south=true,west=true": {
-      "model": "sticksdeco:block/birch_table/corner",
+      "model": "sticksdeco:block/birch/table/corner",
       "y": 180,
       "uvlock": true
     },
     "north=true,east=false,south=false,west=true": {
-      "model": "sticksdeco:block/birch_table/corner",
+      "model": "sticksdeco:block/birch/table/corner",
       "y": 270,
       "uvlock": true
     },
 	
     "north=true,east=false,south=true,west=false": {
-      "model": "sticksdeco:block/birch_table/straight"
+      "model": "sticksdeco:block/birch/table/straight"
     },
     "north=false,east=true,south=false,west=true": {
-      "model": "sticksdeco:block/birch_table/straight",
+      "model": "sticksdeco:block/birch/table/straight",
       "y": 90,
       "uvlock": true
     },
 	
     "north=true,east=true,south=false,west=true": {
-      "model": "sticksdeco:block/birch_table/junction"
+      "model": "sticksdeco:block/birch/table/junction"
     },
     "north=true,east=true,south=true,west=false": {
-      "model": "sticksdeco:block/birch_table/junction",
+      "model": "sticksdeco:block/birch/table/junction",
       "y": 90,
       "uvlock": true
     },
     "north=false,east=true,south=true,west=true": {
-      "model": "sticksdeco:block/birch_table/junction",
+      "model": "sticksdeco:block/birch/table/junction",
       "y": 180,
       "uvlock": true
     },
     "north=true,east=false,south=true,west=true": {
-      "model": "sticksdeco:block/birch_table/junction",
+      "model": "sticksdeco:block/birch/table/junction",
       "y": 270,
       "uvlock": true
     },
 	
     "north=true,east=true,south=true,west=true": {
-      "model": "sticksdeco:block/birch_table/mid"
+      "model": "sticksdeco:block/birch/table/mid"
     }
   }
 }

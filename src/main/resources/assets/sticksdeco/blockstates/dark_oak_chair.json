@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=north": {
-      "model": "sticksdeco:block/dark_oak_chair"
+      "model": "sticksdeco:block/dark_oak/chair"
     },
     "facing=south": {
-      "model": "sticksdeco:block/dark_oak_chair",
+      "model": "sticksdeco:block/dark_oak/chair",
       "y": 180
     },
     "facing=west": {
-      "model": "sticksdeco:block/dark_oak_chair",
+      "model": "sticksdeco:block/dark_oak/chair",
       "y": 270
     },
     "facing=east": {
-      "model": "sticksdeco:block/dark_oak_chair",
+      "model": "sticksdeco:block/dark_oak/chair",
       "y": 90
     }
   }

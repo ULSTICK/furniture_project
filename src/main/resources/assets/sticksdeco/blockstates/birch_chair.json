@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=north": {
-      "model": "sticksdeco:block/birch_chair"
+      "model": "sticksdeco:block/birch/chair"
     },
     "facing=south": {
-      "model": "sticksdeco:block/birch_chair",
+      "model": "sticksdeco:block/birch/chair",
       "y": 180
     },
     "facing=west": {
-      "model": "sticksdeco:block/birch_chair",
+      "model": "sticksdeco:block/birch/chair",
       "y": 270
     },
     "facing=east": {
-      "model": "sticksdeco:block/birch_chair",
+      "model": "sticksdeco:block/birch/chair",
       "y": 90
     }
   }

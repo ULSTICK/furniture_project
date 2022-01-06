@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/crimson_table/base",
+    "parent": "sticksdeco:block/crimson/table/base",
     "gui_light": "side",
     "display": {
         "gui": {

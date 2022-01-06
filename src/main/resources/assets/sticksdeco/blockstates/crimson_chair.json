@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=north": {
-      "model": "sticksdeco:block/crimson_chair"
+      "model": "sticksdeco:block/crimson/chair"
     },
     "facing=south": {
-      "model": "sticksdeco:block/crimson_chair",
+      "model": "sticksdeco:block/crimson/chair",
       "y": 180
     },
     "facing=west": {
-      "model": "sticksdeco:block/crimson_chair",
+      "model": "sticksdeco:block/crimson/chair",
       "y": 270
     },
     "facing=east": {
-      "model": "sticksdeco:block/crimson_chair",
+      "model": "sticksdeco:block/crimson/chair",
       "y": 90
     }
   }

@@ -1,7 +1,7 @@
 package com.ulstick.sticksdeco.client.renderer;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
-import com.ulstick.sticksdeco.common.tileentityclass.ShelfTileEntity;
+import com.ulstick.sticksdeco.common.tileentities.ShelfTileEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.player.ClientPlayerEntity;
@@ -12,35 +12,38 @@ import net.minecraft.client.renderer.model.ItemCameraTransforms;
 import net.minecraft.client.renderer.tileentity.TileEntityRenderer;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Quaternion;
 import net.minecraft.util.math.vector.Vector3f;
 import net.minecraft.world.LightType;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 
-import static com.ulstick.sticksdeco.common.blockclass.FurnitureBlock.FACING;
+import static com.ulstick.sticksdeco.common.blocks.FurnitureBlock.FACING;
 
+@OnlyIn(Dist.CLIENT)
 public class ShelfRenderer extends TileEntityRenderer<ShelfTileEntity> {
     private Minecraft MC = Minecraft.getInstance();
-    public ShelfRenderer(TileEntityRendererDispatcher p_i226006_1_) {
-        super(p_i226006_1_);
+    public ShelfRenderer(TileEntityRendererDispatcher dispatcher) {
+        super(dispatcher);
     }
 
     @Override
     public void render(ShelfTileEntity tileEntity, float partialTicks, MatrixStack matrixStack, IRenderTypeBuffer bufferIn, int LightIn, int OverlayIn) {
-        ItemStack slot0 = tileEntity.getItem(0);
-        ItemStack slot1 = tileEntity.getItem(1);
-        ItemStack slot2 = tileEntity.getItem(2);
-        ItemStack slot3 = tileEntity.getItem(3);
-        if (slot0.equals(ItemStack.EMPTY) && slot1.equals(ItemStack.EMPTY) && slot2.equals(ItemStack.EMPTY) && slot3.equals(ItemStack.EMPTY)) return;
-
         ClientPlayerEntity player = MC.player;
         int lightLevel = getLightLevel(tileEntity.getLevel(), tileEntity.getBlockPos());
-        renderItem(tileEntity.getItem(0), getRotatedVector(tileEntity, 0), Vector3f.YP.rotationDegrees(getDirection(tileEntity)), matrixStack, bufferIn, partialTicks, OverlayIn, lightLevel, 0.25f);
-        renderItem(tileEntity.getItem(1), getRotatedVector(tileEntity, 1), Vector3f.YP.rotationDegrees(getDirection(tileEntity)), matrixStack, bufferIn, partialTicks, OverlayIn, lightLevel, 0.25f);
-        renderItem(tileEntity.getItem(2), getRotatedVector(tileEntity, 2), Vector3f.YP.rotationDegrees(getDirection(tileEntity)), matrixStack, bufferIn, partialTicks, OverlayIn, lightLevel, 0.25f);
-        renderItem(tileEntity.getItem(3), getRotatedVector(tileEntity, 3), Vector3f.YP.rotationDegrees(getDirection(tileEntity)), matrixStack, bufferIn, partialTicks, OverlayIn, lightLevel, 0.25f);
+        for (int x = 0; x < 4; x++) {
+            if (!tileEntity.getItem(x).equals(ItemStack.EMPTY)) {
+                if (tileEntity.getItem(x).getItem().equals(Items.TRIDENT)) {
+                    renderItem(tileEntity.getItem(x), getRotatedVector(tileEntity, x), Vector3f.YP.rotationDegrees(getDirection(tileEntity)), matrixStack, bufferIn, partialTicks, OverlayIn, lightLevel, 0.25f, ItemCameraTransforms.TransformType.FIXED);
+                } else {
+                    renderItem(tileEntity.getItem(x), getRotatedVector(tileEntity, x), Vector3f.YP.rotationDegrees(getDirection(tileEntity)), matrixStack, bufferIn, partialTicks, OverlayIn, lightLevel, 0.25f, ItemCameraTransforms.TransformType.NONE);
+                }
+            }
+        }
     }
 
     private float getDirection(ShelfTileEntity tileEntity) {
@@ -86,14 +89,14 @@ public class ShelfRenderer extends TileEntityRenderer<ShelfTileEntity> {
         }
     }
 
-    private void renderItem(ItemStack stack, double[] translation, Quaternion rot, MatrixStack matrixStack, IRenderTypeBuffer buffer, float partialTick, int combinedOverlay, int lightLevel, float scale) {
+    private void renderItem(ItemStack stack, double[] translation, Quaternion rot, MatrixStack matrixStack, IRenderTypeBuffer buffer, float partialTick, int combinedOverlay, int lightLevel, float scale, ItemCameraTransforms.TransformType transformType) {
         matrixStack.pushPose();
         matrixStack.translate(translation[0], translation[1], translation[2]);
         matrixStack.mulPose(rot);
         matrixStack.scale(scale, scale, scale);
 
         IBakedModel model = MC.getItemRenderer().getModel(stack, null, null);
-        MC.getItemRenderer().render(stack, ItemCameraTransforms.TransformType.NONE, true, matrixStack, buffer, lightLevel, combinedOverlay, model);
+        MC.getItemRenderer().render(stack, transformType, true, matrixStack, buffer, lightLevel, combinedOverlay, model);
         matrixStack.popPose();
     }
 

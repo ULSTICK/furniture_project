@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "sticksdeco:block/dynasty_leaves"
+      "model": "sticksdeco:block/dynasty/leaves"
     }
   }
 }

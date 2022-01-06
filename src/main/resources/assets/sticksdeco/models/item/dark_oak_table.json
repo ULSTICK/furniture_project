@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/dark_oak_table/base",
+    "parent": "sticksdeco:block/dark_oak/table/base",
     "gui_light": "side",
     "display": {
         "gui": {

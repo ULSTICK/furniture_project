@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/modern_counter/straight",
+    "parent": "sticksdeco:block/modern/counter/straight",
     "gui_light": "side",
     "display": {
         "gui": {

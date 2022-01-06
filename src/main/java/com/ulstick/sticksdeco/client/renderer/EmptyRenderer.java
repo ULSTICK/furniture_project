@@ -1,6 +1,6 @@
 package com.ulstick.sticksdeco.client.renderer;
 
-import com.ulstick.sticksdeco.common.entityclass.SeatDummy;
+import com.ulstick.sticksdeco.common.entities.SeatDummy;
 import net.minecraft.client.renderer.culling.ClippingHelper;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;

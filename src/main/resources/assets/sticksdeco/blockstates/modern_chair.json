@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=north": {
-      "model": "sticksdeco:block/modern_chair"
+      "model": "sticksdeco:block/modern/chair"
     },
     "facing=south": {
-      "model": "sticksdeco:block/modern_chair",
+      "model": "sticksdeco:block/modern/chair",
       "y": 180
     },
     "facing=west": {
-      "model": "sticksdeco:block/modern_chair",
+      "model": "sticksdeco:block/modern/chair",
       "y": 270
     },
     "facing=east": {
-      "model": "sticksdeco:block/modern_chair",
+      "model": "sticksdeco:block/modern/chair",
       "y": 90
     }
   }

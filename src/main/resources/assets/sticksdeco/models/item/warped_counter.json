@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/warped_counter/straight",
+    "parent": "sticksdeco:block/warped/counter/straight",
     "gui_light": "side",
     "display": {
         "gui": {

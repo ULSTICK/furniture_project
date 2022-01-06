@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=north": {
-      "model": "sticksdeco:block/acacia_chair"
+      "model": "sticksdeco:block/acacia/chair"
     },
     "facing=south": {
-      "model": "sticksdeco:block/acacia_chair",
+      "model": "sticksdeco:block/acacia/chair",
       "y": 180
     },
     "facing=west": {
-      "model": "sticksdeco:block/acacia_chair",
+      "model": "sticksdeco:block/acacia/chair",
       "y": 270
     },
     "facing=east": {
-      "model": "sticksdeco:block/acacia_chair",
+      "model": "sticksdeco:block/acacia/chair",
       "y": 90
     }
   }

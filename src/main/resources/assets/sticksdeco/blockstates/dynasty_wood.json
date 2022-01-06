@@ -1,15 +1,15 @@
 {
   "variants": {
     "axis=x": {
-      "model": "sticksdeco:block/dynasty_wood",
+      "model": "sticksdeco:block/dynasty/wood",
       "x": 90,
       "y": 90
     },
     "axis=y": {
-      "model": "sticksdeco:block/dynasty_wood"
+      "model": "sticksdeco:block/dynasty/wood"
     },
     "axis=z": {
-      "model": "sticksdeco:block/dynasty_wood",
+      "model": "sticksdeco:block/dynasty/wood",
       "x": 90
     }
   }

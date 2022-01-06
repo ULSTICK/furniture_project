@@ -2,13 +2,10 @@ package com.ulstick.sticksdeco;
 
 import com.ulstick.sticksdeco.client.renderer.EmptyRenderer;
 import com.ulstick.sticksdeco.client.renderer.ShelfRenderer;
-import com.ulstick.sticksdeco.common.screen.ShelfScreen;
 import com.ulstick.sticksdeco.core.blocks.ModBlock;
-import com.ulstick.sticksdeco.core.containers.ModContainer;
 import com.ulstick.sticksdeco.core.entities.ModEntity;
 import com.ulstick.sticksdeco.core.items.ModItems;
 import com.ulstick.sticksdeco.core.tileentities.ModTileEntity;
-import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.common.MinecraftForge;
@@ -34,7 +31,7 @@ public class SticksDeco
         ModItems.register(eventBus);
         ModEntity.register(eventBus);
         ModTileEntity.register(eventBus);
-        ModContainer.register(eventBus);
+        //ModContainer.register(eventBus);
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
@@ -48,8 +45,6 @@ public class SticksDeco
             RenderTypeLookup.setRenderLayer(ModBlock.DYNASTY_TRAPDOOR.get(), RenderType.cutout());
             RenderTypeLookup.setRenderLayer(ModBlock.FUTURISTIC_CHAIR.get(), RenderType.translucent());
             RenderTypeLookup.setRenderLayer(ModBlock.FUTURISTIC_TABLE.get(), RenderType.translucent());
-
-            ScreenManager.register(ModContainer.SHELF_CONTAINER.get(), ShelfScreen::new);
         });
         RenderingRegistry.registerEntityRenderingHandler(ModEntity.SEAT_DUMMY.get(), EmptyRenderer::new);
         ClientRegistry.bindTileEntityRenderer(ModTileEntity.SHELF_TILE.get(), ShelfRenderer::new);

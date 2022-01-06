@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/oak_table/base",
+    "parent": "sticksdeco:block/oak/table/base",
     "gui_light": "side",
     "display": {
         "gui": {

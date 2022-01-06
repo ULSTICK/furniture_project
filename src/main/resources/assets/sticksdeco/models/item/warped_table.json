@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/warped_table/base",
+    "parent": "sticksdeco:block/warped/table/base",
     "gui_light": "side",
     "display": {
         "gui": {

@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/stone_table/base",
+    "parent": "sticksdeco:block/stone/table/base",
     "gui_light": "side",
     "display": {
         "gui": {

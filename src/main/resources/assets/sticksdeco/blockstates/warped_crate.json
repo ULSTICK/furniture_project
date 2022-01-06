@@ -1,36 +1,36 @@
 {
   "variants": {
     "open=false": {
-      "model": "sticksdeco:block/warped_crate"
+      "model": "sticksdeco:block/warped/crate"
     },
 	
     "facing=up,open=true": {
-      "model": "sticksdeco:block/warped_crate_open"
+      "model": "sticksdeco:block/warped/crate_open"
     },
     "facing=down,open=true": {
-      "model": "sticksdeco:block/warped_crate_open",
+      "model": "sticksdeco:block/warped/crate_open",
       "x": 180,
 	  "uvlock": true
     },
     "facing=north,open=true": {
-      "model": "sticksdeco:block/warped_crate_open",
+      "model": "sticksdeco:block/warped/crate_open",
       "x": 90,
 	  "uvlock": true
     },
     "facing=south,open=true": {
-      "model": "sticksdeco:block/warped_crate_open",
+      "model": "sticksdeco:block/warped/crate_open",
       "x": 90,
       "y": 180,
 	  "uvlock": true
     },
     "facing=east,open=true": {
-      "model": "sticksdeco:block/warped_crate_open",
+      "model": "sticksdeco:block/warped/crate_open",
       "x": 90,
       "y": 90,
 	  "uvlock": true
     },
     "facing=west,open=true": {
-      "model": "sticksdeco:block/warped_crate_open",
+      "model": "sticksdeco:block/warped/crate_open",
       "x": 90,
       "y": 270,
 	  "uvlock": true

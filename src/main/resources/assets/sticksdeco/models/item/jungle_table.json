@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/jungle_table/base",
+    "parent": "sticksdeco:block/jungle/table/base",
     "gui_light": "side",
     "display": {
         "gui": {

@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/futuristic_table/base",
+    "parent": "sticksdeco:block/futuristic/table/base",
     "gui_light": "side",
     "display": {
         "gui": {

@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/modern_table/base",
+    "parent": "sticksdeco:block/modern/table/base",
     "gui_light": "side",
     "display": {
         "gui": {

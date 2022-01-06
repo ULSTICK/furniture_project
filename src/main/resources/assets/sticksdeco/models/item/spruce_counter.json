@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/spruce_counter/straight",
+    "parent": "sticksdeco:block/spruce/counter/straight",
     "gui_light": "side",
     "display": {
         "gui": {

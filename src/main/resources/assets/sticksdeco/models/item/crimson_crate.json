@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/crimson_crate",
+    "parent": "sticksdeco:block/crimson/crate",
     "gui_light": "side",
     "display": {
         "gui": {

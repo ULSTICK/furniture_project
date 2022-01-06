@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/oak_counter/straight",
+    "parent": "sticksdeco:block/oak/counter/straight",
     "gui_light": "side",
     "display": {
         "gui": {

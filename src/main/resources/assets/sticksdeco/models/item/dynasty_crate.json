@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/dynasty_crate",
+    "parent": "sticksdeco:block/dynasty/crate",
     "gui_light": "side",
     "display": {
         "gui": {

@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/dynasty_counter/straight",
+    "parent": "sticksdeco:block/dynasty/counter/straight",
     "gui_light": "side",
     "display": {
         "gui": {

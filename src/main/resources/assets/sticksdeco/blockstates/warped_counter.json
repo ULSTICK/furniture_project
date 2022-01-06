@@ -1,77 +1,77 @@
 {
   "variants": {
     "north=false,east=false,south=false,west=false": {
-      "model": "sticksdeco:block/warped_counter/base"
+      "model": "sticksdeco:block/warped/counter/base"
     },
 	
     "north=true,east=false,south=false,west=false": {
-      "model": "sticksdeco:block/warped_counter/end"
+      "model": "sticksdeco:block/warped/counter/end"
     },
     "north=false,east=true,south=false,west=false": {
-      "model": "sticksdeco:block/warped_counter/end",
+      "model": "sticksdeco:block/warped/counter/end",
       "y": 90,
       "uvlock": true
     },
     "north=false,east=false,south=true,west=false": {
-      "model": "sticksdeco:block/warped_counter/end",
+      "model": "sticksdeco:block/warped/counter/end",
       "y": 180,
       "uvlock": true
     },
     "north=false,east=false,south=false,west=true": {
-      "model": "sticksdeco:block/warped_counter/end",
+      "model": "sticksdeco:block/warped/counter/end",
       "y": 270,
       "uvlock": true
     },
 	
     "north=true,east=true,south=false,west=false": {
-      "model": "sticksdeco:block/warped_counter/corner"
+      "model": "sticksdeco:block/warped/counter/corner"
     },
     "north=false,east=true,south=true,west=false": {
-      "model": "sticksdeco:block/warped_counter/corner",
+      "model": "sticksdeco:block/warped/counter/corner",
       "y": 90,
       "uvlock": true
     },
     "north=false,east=false,south=true,west=true": {
-      "model": "sticksdeco:block/warped_counter/corner",
+      "model": "sticksdeco:block/warped/counter/corner",
       "y": 180,
       "uvlock": true
     },
     "north=true,east=false,south=false,west=true": {
-      "model": "sticksdeco:block/warped_counter/corner",
+      "model": "sticksdeco:block/warped/counter/corner",
       "y": 270,
       "uvlock": true
     },
 	
     "north=true,east=false,south=true,west=false": {
-      "model": "sticksdeco:block/warped_counter/straight"
+      "model": "sticksdeco:block/warped/counter/straight"
     },
     "north=false,east=true,south=false,west=true": {
-      "model": "sticksdeco:block/warped_counter/straight",
+      "model": "sticksdeco:block/warped/counter/straight",
       "y": 90,
       "uvlock": true
     },
 	
     "north=true,east=true,south=false,west=true": {
-      "model": "sticksdeco:block/warped_counter/junction"
+      "model": "sticksdeco:block/warped/counter/junction"
     },
     "north=true,east=true,south=true,west=false": {
-      "model": "sticksdeco:block/warped_counter/junction",
+      "model": "sticksdeco:block/warped/counter/junction",
       "y": 90,
       "uvlock": true
     },
     "north=false,east=true,south=true,west=true": {
-      "model": "sticksdeco:block/warped_counter/junction",
+      "model": "sticksdeco:block/warped/counter/junction",
       "y": 180,
       "uvlock": true
     },
     "north=true,east=false,south=true,west=true": {
-      "model": "sticksdeco:block/warped_counter/junction",
+      "model": "sticksdeco:block/warped/counter/junction",
       "y": 270,
       "uvlock": true
     },
 	
     "north=true,east=true,south=true,west=true": {
-      "model": "sticksdeco:block/warped_counter/mid"
+      "model": "sticksdeco:block/warped/counter/mid"
     }
   }
 }

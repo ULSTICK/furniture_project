@@ -70,14 +70,17 @@
 	
 	"block.sticksdeco.stone_chair": "Stone Chair",
 	"block.sticksdeco.stone_table": "Stone Table",
+	"block.sticksdeco.stone_shelf": "Stone Shelf",
 	
 	"block.sticksdeco.modern_chair": "Modern Chair",
 	"block.sticksdeco.modern_table": "Modern Table",
+	"block.sticksdeco.modern_shelf": "Modern Shelf",
 	"block.sticksdeco.modern_counter": "Modern Counter",
 	"block.sticksdeco.modern_cabinet": "Modern Cabinet",
 	
 	"block.sticksdeco.futuristic_chair": "Futuristic Chair",
 	"block.sticksdeco.futuristic_table": "Futuristic Table",
+	"block.sticksdeco.futuristic_shelf": "Futuristic Shelf",
 	"block.sticksdeco.futuristic_counter": "Futuristic Counter",
 	"block.sticksdeco.futuristic_cabinet": "Futuristic Cabinet",
 	
@@ -93,13 +96,13 @@
 	"block.sticksdeco.metal_crate": "Metal Crate",
 	"block.sticksdeco.reinforced_trapdoor": "Reinforced Trapdoor",
 	"block.sticksdeco.crafting_carpet": "Crafting Cloth",
+	"block.sticksdeco.fish_barrel": "Barrel Full of Fish",
 	
 	"item.sticksdeco.dark_iron_ingot": "Dark Iron Ingot",
 	"item.sticksdeco.dark_iron_nugget": "Dark Iron Nugget",
 	
 	"container.sticksdeco.crate": "Crate",
 	"container.sticksdeco.cabinet": "Cabinet",
-	"container.sticksdeco.shelf": "Shelf",
 	
 	"tooltip.sticksdeco.cabinet_tip1": "§7Place while [§6Sneaking§7]",
 	"tooltip.sticksdeco.cabinet_tip2": "§7to use alternate model",

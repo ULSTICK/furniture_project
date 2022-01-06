@@ -1,77 +1,77 @@
 {
   "variants": {
     "north=false,east=false,south=false,west=false": {
-      "model": "sticksdeco:block/stone_table/base"
+      "model": "sticksdeco:block/stone/table/base"
     },
 	
     "north=true,east=false,south=false,west=false": {
-      "model": "sticksdeco:block/stone_table/end"
+      "model": "sticksdeco:block/stone/table/end"
     },
     "north=false,east=true,south=false,west=false": {
-      "model": "sticksdeco:block/stone_table/end",
+      "model": "sticksdeco:block/stone/table/end",
       "y": 90,
       "uvlock": true
     },
     "north=false,east=false,south=true,west=false": {
-      "model": "sticksdeco:block/stone_table/end",
+      "model": "sticksdeco:block/stone/table/end",
       "y": 180,
       "uvlock": true
     },
     "north=false,east=false,south=false,west=true": {
-      "model": "sticksdeco:block/stone_table/end",
+      "model": "sticksdeco:block/stone/table/end",
       "y": 270,
       "uvlock": true
     },
 	
     "north=true,east=true,south=false,west=false": {
-      "model": "sticksdeco:block/stone_table/corner"
+      "model": "sticksdeco:block/stone/table/corner"
     },
     "north=false,east=true,south=true,west=false": {
-      "model": "sticksdeco:block/stone_table/corner",
+      "model": "sticksdeco:block/stone/table/corner",
       "y": 90,
       "uvlock": true
     },
     "north=false,east=false,south=true,west=true": {
-      "model": "sticksdeco:block/stone_table/corner",
+      "model": "sticksdeco:block/stone/table/corner",
       "y": 180,
       "uvlock": true
     },
     "north=true,east=false,south=false,west=true": {
-      "model": "sticksdeco:block/stone_table/corner",
+      "model": "sticksdeco:block/stone/table/corner",
       "y": 270,
       "uvlock": true
     },
 	
     "north=true,east=false,south=true,west=false": {
-      "model": "sticksdeco:block/stone_table/straight"
+      "model": "sticksdeco:block/stone/table/straight"
     },
     "north=false,east=true,south=false,west=true": {
-      "model": "sticksdeco:block/stone_table/straight",
+      "model": "sticksdeco:block/stone/table/straight",
       "y": 90,
       "uvlock": true
     },
 	
     "north=true,east=true,south=false,west=true": {
-      "model": "sticksdeco:block/stone_table/junction"
+      "model": "sticksdeco:block/stone/table/junction"
     },
     "north=true,east=true,south=true,west=false": {
-      "model": "sticksdeco:block/stone_table/junction",
+      "model": "sticksdeco:block/stone/table/junction",
       "y": 90,
       "uvlock": true
     },
     "north=false,east=true,south=true,west=true": {
-      "model": "sticksdeco:block/stone_table/junction",
+      "model": "sticksdeco:block/stone/table/junction",
       "y": 180,
       "uvlock": true
     },
     "north=true,east=false,south=true,west=true": {
-      "model": "sticksdeco:block/stone_table/junction",
+      "model": "sticksdeco:block/stone/table/junction",
       "y": 270,
       "uvlock": true
     },
 	
     "north=true,east=true,south=true,west=true": {
-      "model": "sticksdeco:block/stone_table/mid"
+      "model": "sticksdeco:block/stone/table/mid"
     }
   }
 }

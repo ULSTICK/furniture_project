@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/oak_counter/cabinet",
+    "parent": "sticksdeco:block/oak/counter/cabinet",
     "gui_light": "side",
     "display": {
         "gui": {

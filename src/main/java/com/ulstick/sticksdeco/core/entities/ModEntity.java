@@ -1,7 +1,7 @@
 package com.ulstick.sticksdeco.core.entities;
 
 import com.ulstick.sticksdeco.SticksDeco;
-import com.ulstick.sticksdeco.common.entityclass.SeatDummy;
+import com.ulstick.sticksdeco.common.entities.SeatDummy;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;

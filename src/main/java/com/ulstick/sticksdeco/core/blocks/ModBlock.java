@@ -1,7 +1,7 @@
 package com.ulstick.sticksdeco.core.blocks;
 
 import com.ulstick.sticksdeco.SticksDeco;
-import com.ulstick.sticksdeco.common.blockclass.*;
+import com.ulstick.sticksdeco.common.blocks.*;
 import com.ulstick.sticksdeco.core.ModItemGroup;
 import com.ulstick.sticksdeco.core.items.ModItems;
 import net.minecraft.block.*;
@@ -26,7 +26,7 @@ public class ModBlock {
         return true;
     }
 
-    // Pallets
+    // Palletes
     public static final RegistryObject<Block> DYNASTY_LOG = registerBlock("dynasty_log", () -> new LogBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).harvestTool(ToolType.AXE).strength(2.0F, 10.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> DYNASTY_WOOD = registerBlock("dynasty_wood", () -> new LogBlock(AbstractBlock.Properties.copy(ModBlock.DYNASTY_LOG.get())));
     public static final RegistryObject<Block> STRIPPED_DYNASTY_LOG = registerBlock("stripped_dynasty_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(DYNASTY_LOG.get())));
@@ -110,6 +110,7 @@ public class ModBlock {
 
     public static final RegistryObject<Block> FUTURISTIC_CHAIR = Furniture.registerBlock("futuristic_chair", () -> new ChairBlock(AbstractBlock.Properties.of(Material.METAL).sound(SoundType.METAL).lightLevel(value -> {return 3;}).emissiveRendering(ModBlock::always)));
     public static final RegistryObject<Block> FUTURISTIC_TABLE = Furniture.registerBlock("futuristic_table", () -> new TableBlock(AbstractBlock.Properties.of(Material.METAL).sound(SoundType.METAL).lightLevel(value -> {return 3;}).emissiveRendering(ModBlock::always)));
+    public static final RegistryObject<Block> FUTURISTIC_SHELF = Furniture.registerBlock("futuristic_shelf", () -> new ShelfBlock(AbstractBlock.Properties.of(Material.METAL).sound(SoundType.METAL).lightLevel(value -> {return 3;}).emissiveRendering(ModBlock::always)));
 
     public static final RegistryObject<Block> OAK_CRATE = Furniture.registerBlock("oak_crate", () -> new CrateBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).harvestTool(ToolType.AXE).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
     public static final RegistryObject<Block> SPRUCE_CRATE = Furniture.registerBlock("spruce_crate", () -> new CrateBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).harvestTool(ToolType.AXE).strength(3.0F, 6.0F).sound(SoundType.WOOD)));

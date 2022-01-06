@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/acacia_table/base",
+    "parent": "sticksdeco:block/acacia/table/base",
     "gui_light": "side",
     "display": {
         "gui": {

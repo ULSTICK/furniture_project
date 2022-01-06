@@ -1,77 +1,77 @@
 {
   "variants": {
     "facing=north,alternate_model=false,open=false": {
-      "model": "sticksdeco:block/oak_counter/cabinet"
+      "model": "sticksdeco:block/oak/counter/cabinet"
     },
     "facing=south,alternate_model=false,open=false": {
-      "model": "sticksdeco:block/oak_counter/cabinet",
+      "model": "sticksdeco:block/oak/counter/cabinet",
       "y": 180,
 	  "uvlock": true
     },
     "facing=west,alternate_model=false,open=false": {
-      "model": "sticksdeco:block/oak_counter/cabinet",
+      "model": "sticksdeco:block/oak/counter/cabinet",
       "y": 270,
 	  "uvlock": true
     },
     "facing=east,alternate_model=false,open=false": {
-      "model": "sticksdeco:block/oak_counter/cabinet",
+      "model": "sticksdeco:block/oak/counter/cabinet",
       "y": 90,
 	  "uvlock": true
     },
 	
     "facing=north,alternate_model=false,open=true": {
-      "model": "sticksdeco:block/oak_counter/cabinet_open"
+      "model": "sticksdeco:block/oak/counter/cabinet_open"
     },
     "facing=south,alternate_model=false,open=true": {
-      "model": "sticksdeco:block/oak_counter/cabinet_open",
+      "model": "sticksdeco:block/oak/counter/cabinet_open",
       "y": 180,
 	  "uvlock": true
     },
     "facing=west,alternate_model=false,open=true": {
-      "model": "sticksdeco:block/oak_counter/cabinet_open",
+      "model": "sticksdeco:block/oak/counter/cabinet_open",
       "y": 270,
 	  "uvlock": true
     },
     "facing=east,alternate_model=false,open=true": {
-      "model": "sticksdeco:block/oak_counter/cabinet_open",
+      "model": "sticksdeco:block/oak/counter/cabinet_open",
       "y": 90,
 	  "uvlock": true
     },
 	
     "facing=north,alternate_model=true,open=false": {
-      "model": "sticksdeco:block/oak_counter/cabinet_alt"
+      "model": "sticksdeco:block/oak/counter/cabinet_alt"
     },
     "facing=south,alternate_model=true,open=false": {
-      "model": "sticksdeco:block/oak_counter/cabinet_alt",
+      "model": "sticksdeco:block/oak/counter/cabinet_alt",
       "y": 180,
 	  "uvlock": true
     },
     "facing=west,alternate_model=true,open=false": {
-      "model": "sticksdeco:block/oak_counter/cabinet_alt",
+      "model": "sticksdeco:block/oak/counter/cabinet_alt",
       "y": 270,
 	  "uvlock": true
     },
     "facing=east,alternate_model=true,open=false": {
-      "model": "sticksdeco:block/oak_counter/cabinet_alt",
+      "model": "sticksdeco:block/oak/counter/cabinet_alt",
       "y": 90,
 	  "uvlock": true
     },
 	
     "facing=north,alternate_model=true,open=true": {
-      "model": "sticksdeco:block/oak_counter/cabinet_alt_open"
+      "model": "sticksdeco:block/oak/counter/cabinet_alt_open"
     },
     "facing=south,alternate_model=true,open=true": {
-      "model": "sticksdeco:block/oak_counter/cabinet_alt_open",
+      "model": "sticksdeco:block/oak/counter/cabinet_alt_open",
       "y": 180,
 	  "uvlock": true
     },
     "facing=west,alternate_model=true,open=true": {
-      "model": "sticksdeco:block/oak_counter/cabinet_alt_open",
+      "model": "sticksdeco:block/oak/counter/cabinet_alt_open",
       "y": 270,
 	  "uvlock": true
     },
     "facing=east,alternate_model=true,open=true": {
-      "model": "sticksdeco:block/oak_counter/cabinet_alt_open",
+      "model": "sticksdeco:block/oak/counter/cabinet_alt_open",
       "y": 90,
 	  "uvlock": true
     }

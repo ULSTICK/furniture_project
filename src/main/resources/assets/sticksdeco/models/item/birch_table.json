@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/birch_table/base",
+    "parent": "sticksdeco:block/birch/table/base",
     "gui_light": "side",
     "display": {
         "gui": {

@@ -1,5 +1,5 @@
 {
-    "parent": "sticksdeco:block/birch_crate",
+    "parent": "sticksdeco:block/birch/crate",
     "gui_light": "side",
     "display": {
         "gui": {
