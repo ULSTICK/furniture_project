@@ -45,6 +45,7 @@ public class SticksDeco
             RenderTypeLookup.setRenderLayer(ModBlock.DYNASTY_TRAPDOOR.get(), RenderType.cutout());
             RenderTypeLookup.setRenderLayer(ModBlock.FUTURISTIC_CHAIR.get(), RenderType.translucent());
             RenderTypeLookup.setRenderLayer(ModBlock.FUTURISTIC_TABLE.get(), RenderType.translucent());
+            RenderTypeLookup.setRenderLayer(ModBlock.FUTURISTIC_SHELF.get(), RenderType.translucent());
         });
         RenderingRegistry.registerEntityRenderingHandler(ModEntity.SEAT_DUMMY.get(), EmptyRenderer::new);
         ClientRegistry.bindTileEntityRenderer(ModTileEntity.SHELF_TILE.get(), ShelfRenderer::new);
