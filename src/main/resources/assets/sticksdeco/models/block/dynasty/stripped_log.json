@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "sticksdeco:block/stripped_dynasty_log_top",
+    "side": "sticksdeco:block/stripped_dynasty_log"
+  }
+}

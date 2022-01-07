@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "sticksdeco:block/dynasty_leaves"
+  }
+}

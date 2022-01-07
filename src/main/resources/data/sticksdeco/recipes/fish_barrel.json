@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "CCC",
+	"CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:cod"
+    }
+  },
+  "result": {
+    "item": "sticksdeco:fish_barrel",
+    "count": 1
+  }
+}

@@ -1,0 +1,51 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "minecraft:block/acacia_planks",
+		"1": "minecraft:block/acacia_log",
+		"particle": "minecraft:block/acacia_planks"
+	},
+	"elements": [
+		{
+			"name": "top_shelf",
+			"from": [0, 8, 8],
+			"to": [16, 10, 16],
+			"faces": {
+				"north": {"uv": [0, 6, 16, 8], "texture": "#0"},
+				"east": {"uv": [0, 6, 8, 8], "texture": "#0"},
+				"south": {"uv": [0, 6, 16, 8], "texture": "#0"},
+				"west": {"uv": [8, 6, 16, 8], "texture": "#0"},
+				"up": {"uv": [0, 8, 16, 16], "texture": "#0"},
+				"down": {"uv": [0, 8, 16, 16], "texture": "#0"}
+			}
+		},
+		{
+			"name": "top_support",
+			"from": [3, 4, 13],
+			"to": [5, 10, 15],
+			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 15]},
+			"faces": {
+				"north": {"uv": [11, 10, 13, 16], "texture": "#1"},
+				"east": {"uv": [0, 10, 2, 16], "texture": "#1"},
+				"south": {"uv": [3, 10, 5, 16], "texture": "#1"},
+				"west": {"uv": [14, 10, 16, 16], "texture": "#1"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#1"},
+				"down": {"uv": [0, 0, 2, 2], "texture": "#1"}
+			}
+		},
+		{
+			"name": "top_support",
+			"from": [11, 4, 13],
+			"to": [13, 10, 15],
+			"rotation": {"angle": -45, "axis": "x", "origin": [8, 8, 15]},
+			"faces": {
+				"north": {"uv": [3, 10, 5, 16], "texture": "#1"},
+				"east": {"uv": [0, 10, 2, 16], "texture": "#1"},
+				"south": {"uv": [11, 10, 13, 16], "texture": "#1"},
+				"west": {"uv": [14, 10, 16, 16], "texture": "#1"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#1"},
+				"down": {"uv": [0, 0, 2, 2], "texture": "#1"}
+			}
+		}
+	]
+}

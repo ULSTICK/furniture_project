@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "sticksdeco:block/dynasty/shelf"
+    },
+    "facing=south": {
+      "model": "sticksdeco:block/dynasty/shelf",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "sticksdeco:block/dynasty/shelf",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "sticksdeco:block/dynasty/shelf",
+      "y": 90
+    }
+  }
+}

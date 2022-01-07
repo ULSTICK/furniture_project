@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "sticksdeco:block/jungle_crate_open",
+    "bottom": "sticksdeco:block/jungle_crate",
+    "side": "sticksdeco:block/jungle_crate"
+  }
+}

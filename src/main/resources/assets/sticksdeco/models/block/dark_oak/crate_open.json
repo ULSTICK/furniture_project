@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "sticksdeco:block/dark_oak_crate_open",
+    "bottom": "sticksdeco:block/dark_oak_crate",
+    "side": "sticksdeco:block/dark_oak_crate"
+  }
+}

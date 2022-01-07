@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_shelf",
+  "pattern": [
+    "--",
+    "//"
+  ],
+  "key": {
+    "-": {
+      "item": "sticksdeco:dynasty_slab"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "sticksdeco:dynasty_shelf",
+    "count": 4
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "variants": {
+    "facing=north,type=bottom": {
+      "model": "sticksdeco:block/futuristic/shelf/bottom"
+    },
+    "facing=south,type=bottom": {
+      "model": "sticksdeco:block/futuristic/shelf/bottom",
+      "y": 180
+    },
+    "facing=west,type=bottom": {
+      "model": "sticksdeco:block/futuristic/shelf/bottom",
+      "y": 270
+    },
+    "facing=east,type=bottom": {
+      "model": "sticksdeco:block/futuristic/shelf/bottom",
+      "y": 90
+    },
+	
+    "facing=north,type=top": {
+      "model": "sticksdeco:block/futuristic/shelf/top"
+    },
+    "facing=south,type=top": {
+      "model": "sticksdeco:block/futuristic/shelf/top",
+      "y": 180
+    },
+    "facing=west,type=top": {
+      "model": "sticksdeco:block/futuristic/shelf/top",
+      "y": 270
+    },
+    "facing=east,type=top": {
+      "model": "sticksdeco:block/futuristic/shelf/top",
+      "y": 90
+    },
+	
+    "facing=north,type=double": {
+      "model": "sticksdeco:block/futuristic/shelf/double"
+    },
+    "facing=south,type=double": {
+      "model": "sticksdeco:block/futuristic/shelf/double",
+      "y": 180
+    },
+    "facing=west,type=double": {
+      "model": "sticksdeco:block/futuristic/shelf/double",
+      "y": 270
+    },
+    "facing=east,type=double": {
+      "model": "sticksdeco:block/futuristic/shelf/double",
+      "y": 90
+    }
+  }
+}
