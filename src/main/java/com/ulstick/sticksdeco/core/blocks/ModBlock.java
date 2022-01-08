@@ -4,44 +4,38 @@ import com.ulstick.sticksdeco.SticksDeco;
 import com.ulstick.sticksdeco.common.blocks.*;
 import com.ulstick.sticksdeco.core.ModItemGroup;
 import com.ulstick.sticksdeco.core.items.ModItems;
-import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
-import net.minecraftforge.common.ToolType;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
 public class ModBlock {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, SticksDeco.MOD_ID);
 
-    private static boolean always(BlockState p_235426_0_, IBlockReader p_235426_1_, BlockPos p_235426_2_) {
-        return true;
-    }
-
     // Palletes
-    public static final RegistryObject<Block> DYNASTY_LOG = registerBlock("dynasty_log", () -> new LogBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).harvestTool(ToolType.AXE).strength(2.0F, 10.0F).sound(SoundType.WOOD)));
-    public static final RegistryObject<Block> DYNASTY_WOOD = registerBlock("dynasty_wood", () -> new LogBlock(AbstractBlock.Properties.copy(ModBlock.DYNASTY_LOG.get())));
-    public static final RegistryObject<Block> STRIPPED_DYNASTY_LOG = registerBlock("stripped_dynasty_log", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(DYNASTY_LOG.get())));
-    public static final RegistryObject<Block> STRIPPED_DYNASTY_WOOD = registerBlock("stripped_dynasty_wood", () -> new RotatedPillarBlock(AbstractBlock.Properties.copy(DYNASTY_LOG.get())));
-    public static final RegistryObject<Block> DYNASTY_LEAVES = registerBlock("dynasty_leaves", () -> new LeavesBlock(AbstractBlock.Properties.copy(Blocks.OAK_LEAVES)));
-    public static final RegistryObject<Block> DYNASTY_PLANKS = registerBlock("dynasty_planks", () -> new Block(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).harvestTool(ToolType.AXE).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
-    public static final RegistryObject<Block> DYNASTY_STAIRS = registerBlock("dynasty_stairs", () -> new StairsBlock(() -> DYNASTY_PLANKS.get().defaultBlockState(), AbstractBlock.Properties.copy(DYNASTY_PLANKS.get())));
-    public static final RegistryObject<Block> DYNASTY_SLAB = registerBlock("dynasty_slab", () -> new SlabBlock(AbstractBlock.Properties.copy(DYNASTY_PLANKS.get())));
-    public static final RegistryObject<Block> DYNASTY_FENCE = registerBlock("dynasty_fence", () -> new FenceBlock(AbstractBlock.Properties.copy(DYNASTY_PLANKS.get())));
-    public static final RegistryObject<Block> DYNASTY_FENCE_GATE = registerBlock("dynasty_fence_gate", () -> new FenceGateBlock(AbstractBlock.Properties.copy(DYNASTY_PLANKS.get())));
-    public static final RegistryObject<Block> DYNASTY_DOOR = registerBlock("dynasty_door", () -> new DoorBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(3.0F).sound(SoundType.WOOD).noOcclusion()));
-    public static final RegistryObject<Block> DYNASTY_TRAPDOOR = registerBlock("dynasty_trapdoor", () -> new TrapDoorBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(3.0F).sound(SoundType.WOOD).noOcclusion()));
-    public static final RegistryObject<Block> DYNASTY_BUTTON = registerBlock("dynasty_button", () -> new WoodButtonBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(0.5F).sound(SoundType.WOOD).noCollission()));
-    public static final RegistryObject<Block> DYNASTY_PRESSURE_PLATE = registerBlock("dynasty_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(0.5F).sound(SoundType.WOOD).noCollission()));
-    public static final RegistryObject<Block> FISH_BARREL = registerBlock("fish_barrel", () -> new Block(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).harvestTool(ToolType.AXE).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> DYNASTY_LOG = registerBlock("dynasty_log", () -> new LogBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2.0F, 10.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> DYNASTY_WOOD = registerBlock("dynasty_wood", () -> new LogBlock(BlockBehaviour.Properties.copy(ModBlock.DYNASTY_LOG.get())));
+    public static final RegistryObject<Block> STRIPPED_DYNASTY_LOG = registerBlock("stripped_dynasty_log", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(DYNASTY_LOG.get())));
+    public static final RegistryObject<Block> STRIPPED_DYNASTY_WOOD = registerBlock("stripped_dynasty_wood", () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(DYNASTY_LOG.get())));
+    public static final RegistryObject<Block> DYNASTY_LEAVES = registerBlock("dynasty_leaves", () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)));
+    public static final RegistryObject<Block> DYNASTY_PLANKS = registerBlock("dynasty_planks", () -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> DYNASTY_STAIRS = registerBlock("dynasty_stairs", () -> new StairBlock(() -> DYNASTY_PLANKS.get().defaultBlockState(), BlockBehaviour.Properties.copy(DYNASTY_PLANKS.get())));
+    public static final RegistryObject<Block> DYNASTY_SLAB = registerBlock("dynasty_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(DYNASTY_PLANKS.get())));
+    public static final RegistryObject<Block> DYNASTY_FENCE = registerBlock("dynasty_fence", () -> new FenceBlock(BlockBehaviour.Properties.copy(DYNASTY_PLANKS.get())));
+    public static final RegistryObject<Block> DYNASTY_FENCE_GATE = registerBlock("dynasty_fence_gate", () -> new FenceGateBlock(BlockBehaviour.Properties.copy(DYNASTY_PLANKS.get())));
+    public static final RegistryObject<Block> DYNASTY_DOOR = registerBlock("dynasty_door", () -> new DoorBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(3.0F).sound(SoundType.WOOD).noOcclusion()));
+    public static final RegistryObject<Block> DYNASTY_TRAPDOOR = registerBlock("dynasty_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(3.0F).sound(SoundType.WOOD).noOcclusion()));
+    public static final RegistryObject<Block> DYNASTY_BUTTON = registerBlock("dynasty_button", () -> new WoodButtonBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(0.5F).sound(SoundType.WOOD).noCollission()));
+    public static final RegistryObject<Block> DYNASTY_PRESSURE_PLATE = registerBlock("dynasty_pressure_plate", () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(0.5F).sound(SoundType.WOOD).noCollission()));
+    public static final RegistryObject<Block> FISH_BARREL = registerBlock("fish_barrel", () -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
 
     // Furnitures
     public static final RegistryObject<Block> OAK_CHAIR = Furniture.ChairWood("oak_chair");
@@ -108,22 +102,22 @@ public class ModBlock {
     public static final RegistryObject<Block> MODERN_CABINET = Furniture.Cabinet("modern_cabinet", Material.METAL);
     public static final RegistryObject<Block> MODERN_SHELF = Furniture.Shelf("modern_shelf", Material.METAL);
 
-    public static final RegistryObject<Block> FUTURISTIC_CHAIR = Furniture.registerBlock("futuristic_chair", () -> new ChairBlock(AbstractBlock.Properties.of(Material.METAL).sound(SoundType.METAL).lightLevel(value -> {return 3;}).emissiveRendering(ModBlock::always)));
-    public static final RegistryObject<Block> FUTURISTIC_TABLE = Furniture.registerBlock("futuristic_table", () -> new TableBlock(AbstractBlock.Properties.of(Material.METAL).sound(SoundType.METAL).lightLevel(value -> {return 3;}).emissiveRendering(ModBlock::always)));
-    public static final RegistryObject<Block> FUTURISTIC_SHELF = Furniture.registerBlock("futuristic_shelf", () -> new ShelfBlock(AbstractBlock.Properties.of(Material.METAL).sound(SoundType.METAL).lightLevel(value -> {return 3;}).emissiveRendering(ModBlock::always)));
+    public static final RegistryObject<Block> FUTURISTIC_CHAIR = Furniture.registerBlock("futuristic_chair", () -> new ChairBlock(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).lightLevel(value -> {return 3;})));
+    public static final RegistryObject<Block> FUTURISTIC_TABLE = Furniture.registerBlock("futuristic_table", () -> new TableBlock(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).lightLevel(value -> {return 3;})));
+    public static final RegistryObject<Block> FUTURISTIC_SHELF = Furniture.registerBlock("futuristic_shelf", () -> new ShelfBlock(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).lightLevel(value -> {return 3;})));
 
-    public static final RegistryObject<Block> OAK_CRATE = Furniture.registerBlock("oak_crate", () -> new CrateBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).harvestTool(ToolType.AXE).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
-    public static final RegistryObject<Block> SPRUCE_CRATE = Furniture.registerBlock("spruce_crate", () -> new CrateBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).harvestTool(ToolType.AXE).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
-    public static final RegistryObject<Block> BIRCH_CRATE = Furniture.registerBlock("birch_crate", () -> new CrateBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_YELLOW).harvestTool(ToolType.AXE).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
-    public static final RegistryObject<Block> JUNGLE_CRATE = Furniture.registerBlock("jungle_crate", () -> new CrateBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).harvestTool(ToolType.AXE).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
-    public static final RegistryObject<Block> ACACIA_CRATE = Furniture.registerBlock("acacia_crate", () -> new CrateBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_ORANGE).harvestTool(ToolType.AXE).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
-    public static final RegistryObject<Block> DARK_OAK_CRATE = Furniture.registerBlock("dark_oak_crate", () -> new CrateBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).harvestTool(ToolType.AXE).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
-    public static final RegistryObject<Block> DYNASTY_CRATE = Furniture.registerBlock("dynasty_crate", () -> new CrateBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).harvestTool(ToolType.AXE).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
-    public static final RegistryObject<Block> CRIMSON_CRATE = Furniture.registerBlock("crimson_crate", () -> new CrateBlock(AbstractBlock.Properties.of(Material.NETHER_WOOD, MaterialColor.COLOR_RED).harvestTool(ToolType.AXE).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
-    public static final RegistryObject<Block> WARPED_CRATE = Furniture.registerBlock("warped_crate", () -> new CrateBlock(AbstractBlock.Properties.of(Material.NETHER_WOOD, MaterialColor.COLOR_BLUE).harvestTool(ToolType.AXE).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
-    public static final RegistryObject<Block> METAL_CRATE = Furniture.registerBlock("metal_crate", () -> new CrateBlock(AbstractBlock.Properties.of(Material.METAL, MaterialColor.COLOR_LIGHT_GRAY).harvestTool(ToolType.AXE).strength(5.0F, 1200.0F).sound(SoundType.METAL)));
-    public static final RegistryObject<Block> REINFORCED_TRAPDOOR = Furniture.registerBlock("reinforced_trapdoor", () -> new TrapDoorBlock(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).harvestTool(ToolType.AXE).strength(5.0F, 6.0F).sound(SoundType.WOOD)));
-    public static final RegistryObject<Block> CRAFTING_CARPET = Furniture.registerBlock("crafting_carpet", () -> new CraftingCarpetBlock(AbstractBlock.Properties.of(Material.CLOTH_DECORATION, MaterialColor.COLOR_ORANGE).strength(0.4F, 0.6F).noCollission().sound(SoundType.WOOL)));
+    public static final RegistryObject<Block> OAK_CRATE = Furniture.registerBlock("oak_crate", () -> new CrateBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> SPRUCE_CRATE = Furniture.registerBlock("spruce_crate", () -> new CrateBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> BIRCH_CRATE = Furniture.registerBlock("birch_crate", () -> new CrateBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_YELLOW).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> JUNGLE_CRATE = Furniture.registerBlock("jungle_crate", () -> new CrateBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> ACACIA_CRATE = Furniture.registerBlock("acacia_crate", () -> new CrateBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_ORANGE).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> DARK_OAK_CRATE = Furniture.registerBlock("dark_oak_crate", () -> new CrateBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> DYNASTY_CRATE = Furniture.registerBlock("dynasty_crate", () -> new CrateBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> CRIMSON_CRATE = Furniture.registerBlock("crimson_crate", () -> new CrateBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.COLOR_RED).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> WARPED_CRATE = Furniture.registerBlock("warped_crate", () -> new CrateBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.COLOR_BLUE).strength(3.0F, 6.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> METAL_CRATE = Furniture.registerBlock("metal_crate", () -> new CrateBlock(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_LIGHT_GRAY).strength(5.0F, 1200.0F).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> REINFORCED_TRAPDOOR = Furniture.registerBlock("reinforced_trapdoor", () -> new TrapDoorBlock(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(5.0F, 6.0F).sound(SoundType.WOOD)));
+    public static final RegistryObject<Block> CRAFTING_CARPET = Furniture.registerBlock("crafting_carpet", () -> new CraftingCarpetBlock(BlockBehaviour.Properties.of(Material.CLOTH_DECORATION, MaterialColor.COLOR_ORANGE).strength(0.4F, 0.6F).noCollission().sound(SoundType.WOOL)));
 
     public static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

@@ -1,26 +1,25 @@
 package com.ulstick.sticksdeco.common.blocks;
 
-import net.minecraft.block.*;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.Property;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
-import net.minecraft.util.Util;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorld;
+import net.minecraft.Util;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.Map;
 
-public class TableBlock extends GlassBlock implements IWaterLoggable {
+public class TableBlock extends Block implements SimpleWaterloggedBlock {
     public static final BooleanProperty NORTH;
     public static final BooleanProperty EAST;
     public static final BooleanProperty SOUTH;
@@ -39,18 +38,18 @@ public class TableBlock extends GlassBlock implements IWaterLoggable {
     }
 
     @Override
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(NORTH, SOUTH, EAST, WEST, WATERLOGGED);
         super.createBlockStateDefinition(builder);
     }
 
-    public boolean connectsTo(BlockState p_220111_1_, boolean a) {
-        Block lvt_4_1_ = p_220111_1_.getBlock();
-        return !isExceptionForConnection(lvt_4_1_) && a;
+    public boolean connectsTo(BlockState state, boolean a) {
+        Block lvt_4_1_ = state.getBlock();
+        return !isExceptionForConnection(state) && a;
     }
 
-    public BlockState getStateForPlacement(BlockItemUseContext p_196258_1_) {
-        IBlockReader lvt_2_1_ = p_196258_1_.getLevel();
+    public BlockState getStateForPlacement(BlockPlaceContext p_196258_1_) {
+        BlockGetter lvt_2_1_ = p_196258_1_.getLevel();
         BlockPos lvt_3_1_ = p_196258_1_.getClickedPos();
         FluidState lvt_4_1_ = p_196258_1_.getLevel().getFluidState(p_196258_1_.getClickedPos());
         BlockPos lvt_5_1_ = lvt_3_1_.north();
@@ -74,16 +73,16 @@ public class TableBlock extends GlassBlock implements IWaterLoggable {
         return p_204507_1_.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(p_204507_1_);
     }
 
-    public BlockState updateShape(BlockState p_196271_1_, Direction p_196271_2_, BlockState p_196271_3_, IWorld p_196271_4_, BlockPos p_196271_5_, BlockPos p_196271_6_) {
+    public BlockState updateShape(BlockState p_196271_1_, Direction p_196271_2_, BlockState p_196271_3_, LevelAccessor p_196271_4_, BlockPos p_196271_5_, BlockPos p_196271_6_) {
         if (p_196271_1_.getValue(WATERLOGGED)) {
-            p_196271_4_.getLiquidTicks().scheduleTick(p_196271_5_, Fluids.WATER, Fluids.WATER.getTickDelay(p_196271_4_));
+            p_196271_4_.getFluidTicks().hasScheduledTick(p_196271_5_, Fluids.WATER);
         }
 
         return p_196271_2_.getAxis().getPlane() == Direction.Plane.HORIZONTAL ? p_196271_1_
                 .setValue((Property)PROPERTY_BY_DIRECTION.get(p_196271_2_), this.connectsTo(p_196271_3_, p_196271_3_.is(this))) : super.updateShape(p_196271_1_, p_196271_2_, p_196271_3_, p_196271_4_, p_196271_5_, p_196271_6_);
     }
 
-    public boolean propagatesSkylightDown(BlockState p_200123_1_, IBlockReader p_200123_2_, BlockPos p_200123_3_) {
+    public boolean propagatesSkylightDown(BlockState p_200123_1_, BlockGetter p_200123_2_, BlockPos p_200123_3_) {
         return !(Boolean)p_200123_1_.getValue(WATERLOGGED);
     }
 
@@ -112,16 +111,16 @@ public class TableBlock extends GlassBlock implements IWaterLoggable {
     }
 
     @Override
-    public VoxelShape getShape(BlockState p_220053_1_, IBlockReader p_220053_2_, BlockPos p_220053_3_, ISelectionContext p_220053_4_) {
+    public VoxelShape getShape(BlockState state, BlockGetter blockGetter, BlockPos pos, CollisionContext collisionContext) {
         return box(0.0D, 0.0001D, 0.0D, 16.0D, 16.0D, 16.0D);
     }
 
     static {
-        NORTH = SixWayBlock.NORTH;
-        EAST = SixWayBlock.EAST;
-        SOUTH = SixWayBlock.SOUTH;
-        WEST = SixWayBlock.WEST;
+        NORTH = PipeBlock.NORTH;
+        EAST = PipeBlock.EAST;
+        SOUTH = PipeBlock.SOUTH;
+        WEST = PipeBlock.WEST;
         WATERLOGGED = BlockStateProperties.WATERLOGGED;
-        PROPERTY_BY_DIRECTION = (Map)SixWayBlock.PROPERTY_BY_DIRECTION.entrySet().stream().filter((p_199775_0_) -> p_199775_0_.getKey().getAxis().isHorizontal()).collect(Util.toMap());
+        PROPERTY_BY_DIRECTION = (Map)PipeBlock.PROPERTY_BY_DIRECTION.entrySet().stream().filter((p_199775_0_) -> p_199775_0_.getKey().getAxis().isHorizontal()).collect(Util.toMap());
     }
 }

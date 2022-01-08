@@ -1,28 +1,28 @@
 package com.ulstick.sticksdeco.common.entities;
 
 import com.ulstick.sticksdeco.core.entities.ModEntity;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.network.IPacket;
-import net.minecraft.world.World;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.fml.network.NetworkHooks;
+import net.minecraftforge.network.NetworkHooks;
 
 public class SeatDummy extends Entity {
 
-    public SeatDummy(World world){
+    public SeatDummy(Level world){
         super(ModEntity.SEAT_DUMMY.get(), world);
     }
 
-    public SeatDummy(EntityType<? extends Entity> p_i48580_1_, World p_i48580_2_) {
+    public SeatDummy(EntityType<? extends Entity> p_i48580_1_, Level p_i48580_2_) {
         super(p_i48580_1_, p_i48580_2_);
     }
 
-    public SeatDummy(World world, double x, double y, double z) {
+    public SeatDummy(Level world, double x, double y, double z) {
         super(ModEntity.SEAT_DUMMY.get(), world);
         this.setPos(x, y, z);
     }
@@ -42,7 +42,7 @@ public class SeatDummy extends Entity {
     public void tick() {
         BlockState block = getBlockStateOn();
         if (block.is(Blocks.AIR) || block.is(Blocks.CAVE_AIR)) {
-            this.remove();
+            this.remove(null);
         }
     }
 
@@ -51,15 +51,15 @@ public class SeatDummy extends Entity {
     }
 
     @Override
-    protected void readAdditionalSaveData(CompoundNBT compoundNBT) {
+    protected void readAdditionalSaveData(CompoundTag compoundNBT) {
     }
 
     @Override
-    protected void addAdditionalSaveData(CompoundNBT compoundNBT) {
+    protected void addAdditionalSaveData(CompoundTag compoundNBT) {
     }
 
     @Override
-    public IPacket<?> getAddEntityPacket() {
+    public Packet<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
 }

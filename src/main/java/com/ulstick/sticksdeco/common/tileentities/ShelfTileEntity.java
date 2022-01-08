@@ -1,68 +1,52 @@
 package com.ulstick.sticksdeco.common.tileentities;
 
 import com.ulstick.sticksdeco.core.tileentities.ModTileEntity;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.inventory.ItemStackHelper;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.network.play.server.SUpdateTileEntityPacket;
-import net.minecraft.tileentity.LockableLootTileEntity;
-import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraftforge.common.util.Constants;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.NonNullList;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.ContainerHelper;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ChestMenu;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.ForgeHooks;
 
-import javax.annotation.Nullable;
+public class ShelfTileEntity extends RandomizableContainerBlockEntity {
+    private NonNullList<ItemStack> items = NonNullList.withSize(4, ItemStack.EMPTY);
 
-public class ShelfTileEntity extends LockableLootTileEntity {
-    private NonNullList<ItemStack> items;
-
-    public ShelfTileEntity(TileEntityType<?> p_i48289_1_) {
-        super(p_i48289_1_);
-        this.items = NonNullList.withSize(4, ItemStack.EMPTY);
+    public ShelfTileEntity(BlockPos p_155052_, BlockState p_155053_) {
+        super(ModTileEntity.SHELF_TILE.get(), p_155052_, p_155053_);
     }
 
-    public ShelfTileEntity() {
-        this(ModTileEntity.SHELF_TILE.get());
-    }
-
-    public CompoundNBT save(CompoundNBT nbt) {
+    protected void saveAdditional(CompoundTag nbt) {
         this.saveMetadataAndItems(nbt);
         if (!this.trySaveLootTable(nbt)) {
-            ItemStackHelper.saveAllItems(nbt, this.items);
+            ContainerHelper.saveAllItems(nbt, this.items);
         }
-        return nbt;
     }
 
-    private CompoundNBT saveMetadataAndItems(CompoundNBT nbt) {
+    private CompoundTag saveMetadataAndItems(CompoundTag nbt) {
         super.save(nbt);
-        ItemStackHelper.saveAllItems(nbt, this.items, true);
+        ContainerHelper.saveAllItems(nbt, this.items, true);
         return nbt;
     }
 
-    public void load(BlockState state, CompoundNBT nbt) {
-        super.load(state, nbt);
+    public void load(CompoundTag nbt) {
+        super.load(nbt);
         this.items.clear();
         if (!this.tryLoadLootTable(nbt)) {
-            ItemStackHelper.loadAllItems(nbt, this.items);
+            ContainerHelper.loadAllItems(nbt, this.items);
         }
     }
 
-    @Nullable
-    public SUpdateTileEntityPacket getUpdatePacket() {
-        return new SUpdateTileEntityPacket(this.worldPosition, 0, this.getUpdateTag());
-    }
-
-    public CompoundNBT getUpdateTag() {
-        return this.saveMetadataAndItems(new CompoundNBT());
-    }
-
-    public void placeItem(PlayerEntity playerEntity, int slot) {
+    public void placeItem(Player playerEntity, int slot) {
         ItemStack playerItem = playerEntity.getMainHandItem();
 
         takeItem(playerEntity, slot);
@@ -72,7 +56,7 @@ public class ShelfTileEntity extends LockableLootTileEntity {
         this.markUpdated();
     }
 
-    public void takeItem(PlayerEntity playerEntity, int slot) {
+    public void takeItem(Player playerEntity, int slot) {
         ItemStack oldItem = this.items.get(slot);
 
         if (!oldItem.equals(ItemStack.EMPTY)) {
@@ -83,13 +67,12 @@ public class ShelfTileEntity extends LockableLootTileEntity {
     }
 
     @Override
-    protected ITextComponent getDefaultName() {
-        return new TranslationTextComponent("container.shelf");
+    protected Component getDefaultName() {
+        return new TranslatableComponent("container.shelf");
     }
 
-    @Override
-    protected Container createMenu(int i, PlayerInventory playerInventory) {
-        return null;
+    protected AbstractContainerMenu createMenu(int slot, Inventory inventory) {
+        return ChestMenu.threeRows(slot, inventory, this);
     }
 
     private void markUpdated() {
@@ -111,16 +94,26 @@ public class ShelfTileEntity extends LockableLootTileEntity {
         this.items.clear();
     }
 
+
+    //public ClientboundBlockEntityDataPacket getUpdatePacket(){
+    //    return new ClientboundBlockEntityDataPacket(this.getBlockPos(), -1, this.getUpdateTag());
+    //}
+
+    public CompoundTag getUpdateTag() {
+        return this.saveMetadataAndItems(new CompoundTag());
+    }
+
     @Override
     public void setChanged() {
         if (this.level == null) return;
 
-        this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), Constants.BlockFlags.BLOCK_UPDATE);
+        //this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), Constants.BlockFlags.BLOCK_UPDATE);
+        this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), -1);
     }
 
     @Override
-    public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
-        this.load(this.getBlockState(), pkt.getTag());
+    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
+        this.load(pkt.getTag());
         super.onDataPacket(net, pkt);
     }
 

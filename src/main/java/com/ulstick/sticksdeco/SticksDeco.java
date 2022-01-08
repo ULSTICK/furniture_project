@@ -2,16 +2,17 @@ package com.ulstick.sticksdeco;
 
 import com.ulstick.sticksdeco.client.renderer.EmptyRenderer;
 import com.ulstick.sticksdeco.client.renderer.ShelfRenderer;
+import com.ulstick.sticksdeco.common.tileentities.ShelfTileEntity;
 import com.ulstick.sticksdeco.core.blocks.ModBlock;
 import com.ulstick.sticksdeco.core.entities.ModEntity;
 import com.ulstick.sticksdeco.core.items.ModItems;
 import com.ulstick.sticksdeco.core.tileentities.ModTileEntity;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
+//import net.minecraft.client.renderer.RenderTypeLookup;
+import net.minecraftforge.client.ClientRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
+//import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -40,14 +41,14 @@ public class SticksDeco
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
-            RenderTypeLookup.setRenderLayer(ModBlock.DYNASTY_DOOR.get(), RenderType.cutout());
-            RenderTypeLookup.setRenderLayer(ModBlock.CRAFTING_CARPET.get(), RenderType.cutout());
-            RenderTypeLookup.setRenderLayer(ModBlock.DYNASTY_TRAPDOOR.get(), RenderType.cutout());
-            RenderTypeLookup.setRenderLayer(ModBlock.FUTURISTIC_CHAIR.get(), RenderType.translucent());
-            RenderTypeLookup.setRenderLayer(ModBlock.FUTURISTIC_TABLE.get(), RenderType.translucent());
-            RenderTypeLookup.setRenderLayer(ModBlock.FUTURISTIC_SHELF.get(), RenderType.translucent());
+            //RenderTypeLookup.setRenderLayer(ModBlock.DYNASTY_DOOR.get(), RenderType.cutout());
+            //RenderTypeLookup.setRenderLayer(ModBlock.CRAFTING_CARPET.get(), RenderType.cutout());
+            //RenderTypeLookup.setRenderLayer(ModBlock.DYNASTY_TRAPDOOR.get(), RenderType.cutout());
+            //RenderTypeLookup.setRenderLayer(ModBlock.FUTURISTIC_CHAIR.get(), RenderType.translucent());
+            //RenderTypeLookup.setRenderLayer(ModBlock.FUTURISTIC_TABLE.get(), RenderType.translucent());
+            //RenderTypeLookup.setRenderLayer(ModBlock.FUTURISTIC_SHELF.get(), RenderType.translucent());
         });
-        RenderingRegistry.registerEntityRenderingHandler(ModEntity.SEAT_DUMMY.get(), EmptyRenderer::new);
-        ClientRegistry.bindTileEntityRenderer(ModTileEntity.SHELF_TILE.get(), ShelfRenderer::new);
+        //RenderingRegistry.registerEntityRenderingHandler(ModEntity.SEAT_DUMMY.get(), EmptyRenderer::new);
+        //ClientRegistry.bindTileEntityRenderer(ModTileEntity.SHELF_TILE.get(), ShelfRenderer::new);
     }
 }

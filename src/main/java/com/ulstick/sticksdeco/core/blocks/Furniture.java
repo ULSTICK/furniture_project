@@ -5,82 +5,82 @@ import com.ulstick.sticksdeco.common.items.CabinetItem;
 import com.ulstick.sticksdeco.core.ModItemGroup;
 import com.ulstick.sticksdeco.core.items.ModItems;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraftforge.common.ToolType;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
 public class Furniture {
     public static <T extends Block> RegistryObject<Block> ChairWood(String name) {
         RegistryObject<Block> block = ModBlock.BLOCKS.register(name,
-                () -> new FlamChair(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).harvestTool(ToolType.AXE).strength(2.0F, 3.0F).noOcclusion().sound(SoundType.WOOD)));
+                () -> new FlamChair(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(2.0F, 3.0F).noOcclusion().sound(SoundType.WOOD)));
         registerBlockItem(name, block);
         return block;
     }
     public static <T extends Block> RegistryObject<Block> TableWood(String name) {
         RegistryObject<Block> block = ModBlock.BLOCKS.register(name,
-                () -> new FlamTable(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).harvestTool(ToolType.AXE).strength(2.0F, 3.0F).noOcclusion().sound(SoundType.WOOD)));
+                () -> new FlamTable(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(2.0F, 3.0F).noOcclusion().sound(SoundType.WOOD)));
         registerBlockItem(name, block);
         return block;
     }
     public static <T extends Block> RegistryObject<Block> CounterWood(String name) {
         RegistryObject<Block> block = ModBlock.BLOCKS.register(name,
-                () -> new FlamaCounter(AbstractBlock.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).harvestTool(ToolType.AXE).strength(2.0F, 3.0F).noOcclusion().sound(SoundType.WOOD)));
+                () -> new FlamaCounter(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_BROWN).strength(2.0F, 3.0F).noOcclusion().sound(SoundType.WOOD)));
         registerBlockItem(name, block);
         return block;
     }
 
     public static <T extends Block> RegistryObject<Block> Chair(String name, Material material) {
-        ToolType tool = getTool(material);
+        //ToolType tool = getTool(material);
         SoundType sound = getSound(material);
         RegistryObject<Block> block = ModBlock.BLOCKS.register(name,
-                () -> new ChairBlock(AbstractBlock.Properties.of(material).harvestTool(tool).strength(2.0F, 3.0F).noOcclusion().sound(sound)));
+                () -> new ChairBlock(BlockBehaviour.Properties.of(material).strength(2.0F, 3.0F).noOcclusion().sound(sound)));
         registerBlockItem(name, block);
         return block;
     }
     public static <T extends Block> RegistryObject<Block> Table(String name, Material material) {
-        ToolType tool = getTool(material);
+        //ToolType tool = getTool(material);
         SoundType sound = getSound(material);
         RegistryObject<Block> block = ModBlock.BLOCKS.register(name,
-                () -> new TableBlock(AbstractBlock.Properties.of(material).harvestTool(tool).strength(2.0F, 3.0F).noOcclusion().sound(sound)));
+                () -> new TableBlock(BlockBehaviour.Properties.of(material).strength(2.0F, 3.0F).noOcclusion().sound(sound)));
         registerBlockItem(name, block);
         return block;
     }
     public static <T extends Block> RegistryObject<Block> Counter(String name, Material material) {
-        ToolType tool = getTool(material);
+        //ToolType tool = getTool(material);
         SoundType sound = getSound(material);
         RegistryObject<Block> block = ModBlock.BLOCKS.register(name,
-                () -> new CounterBlock(AbstractBlock.Properties.of(material, MaterialColor.COLOR_BROWN).harvestTool(tool).strength(2.0F, 3.0F).noOcclusion().sound(sound)));
+                () -> new CounterBlock(BlockBehaviour.Properties.of(material, MaterialColor.COLOR_BROWN).strength(2.0F, 3.0F).noOcclusion().sound(sound)));
         registerBlockItem(name, block);
         return block;
     }
     public static <T extends Block> RegistryObject<Block> Cabinet(String name, Material material) {
-        ToolType tool = getTool(material);
+        //ToolType tool = getTool(material);
         SoundType sound = getSound(material);
         RegistryObject<Block> block = ModBlock.BLOCKS.register(name,
-                () -> new CabinetBlock(AbstractBlock.Properties.of(material, MaterialColor.COLOR_BROWN).harvestTool(tool).strength(2.0F, 3.0F).noOcclusion().sound(sound)));
+                () -> new CabinetBlock(BlockBehaviour.Properties.of(material, MaterialColor.COLOR_BROWN).strength(2.0F, 3.0F).noOcclusion().sound(sound)));
         ModItems.ITEMS.register(name, () -> new CabinetItem(block.get(),
                 new Item.Properties().tab(ModItemGroup.TAB_STICKSDECO_FURNITURES)));
         return block;
     }
     public static <T extends Block> RegistryObject<Block> Shelf(String name, Material material) {
-        ToolType tool = getTool(material);
+        //ToolType tool = getTool(material);
         SoundType sound = getSound(material);
         RegistryObject<Block> block = ModBlock.BLOCKS.register(name,
-                () -> new ShelfBlock(AbstractBlock.Properties.of(material, MaterialColor.COLOR_BROWN).harvestTool(tool).strength(2.0F, 3.0F).noOcclusion().sound(sound)));
+                () -> new ShelfBlock(BlockBehaviour.Properties.of(material, MaterialColor.COLOR_BROWN).strength(2.0F, 3.0F).noOcclusion().sound(sound)));
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
                 new Item.Properties().tab(ModItemGroup.TAB_STICKSDECO_FURNITURES)));
         return block;
     }
 
-    public static ToolType getTool(Material mat){
+    /*
+    public static Type getTool(Material mat){
         if (mat==Material.WOOD || mat==Material.NETHER_WOOD){
             return ToolType.AXE;
         } else if (mat==Material.DIRT || mat==Material.SAND || mat==Material.CLAY){
@@ -89,7 +89,8 @@ public class Furniture {
             return ToolType.HOE;
         }
         return ToolType.PICKAXE;
-    }
+    }*/
+
     public static SoundType getSound(Material mat){
         if (mat==Material.WOOD || mat==Material.NETHER_WOOD){
             return SoundType.WOOD;

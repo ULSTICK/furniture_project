@@ -1,41 +1,35 @@
 package com.ulstick.sticksdeco.common.blocks;
 
 import com.ulstick.sticksdeco.common.tileentities.ShelfTileEntity;
-import com.ulstick.sticksdeco.core.tileentities.ModTileEntity;
-import net.minecraft.block.*;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.InventoryHelper;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.DirectionProperty;
-import net.minecraft.state.EnumProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.state.properties.SlabType;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.shapes.VoxelShapes;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.World;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.Container;
+import net.minecraft.world.Containers;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RenderShape;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.*;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
-import java.util.Random;
 
-public class ShelfBlock extends ContainerBlock implements IWaterLoggable, ITileEntityProvider {
+public class ShelfBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
     public static final DirectionProperty FACING;
     public static final BooleanProperty WATERLOGGED;
     public static final EnumProperty<SlabType> TYPE;
@@ -45,9 +39,9 @@ public class ShelfBlock extends ContainerBlock implements IWaterLoggable, ITileE
     }
 
     @Override
-    public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity playerEntity, Hand handIn, BlockRayTraceResult hit) {
+    public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player playerEntity, InteractionHand handIn, BlockHitResult hit) {
         if(!worldIn.isClientSide()) {
-            TileEntity tileEntity = worldIn.getBlockEntity(pos);
+            BlockEntity tileEntity = worldIn.getBlockEntity(pos);
 
             if(tileEntity instanceof ShelfTileEntity) {
                 ShelfTileEntity shelfTile = (ShelfTileEntity)tileEntity;
@@ -76,54 +70,48 @@ public class ShelfBlock extends ContainerBlock implements IWaterLoggable, ITileE
                 if(!hand.equals(ItemStack.EMPTY)){
                     //Places item when the player have an item in hand
                     shelfTile.placeItem(playerEntity, sloter);
-                    return ActionResultType.CONSUME;
+                    return InteractionResult.CONSUME;
                 } else {
                     //Takes item when the player don't have an item in hand
                     shelfTile.takeItem(playerEntity, sloter);
-                    return ActionResultType.SUCCESS;
+                    return InteractionResult.SUCCESS;
                 }
 
             }
             throw new IllegalStateException("GUI Container Provider Missing!");
         }
-        return ActionResultType.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
 
     @Nullable
-    @Override
-    public TileEntity newBlockEntity(IBlockReader iBlockReader) {
-        return ModTileEntity.SHELF_TILE.get().create();
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new ShelfTileEntity(pos, state);
     }
 
     @Override
-    public boolean hasTileEntity(BlockState state) {
-        return true;
-    }
-
-    @Override
-    public void onRemove(BlockState state, World worldIn, BlockPos pos, BlockState state1, boolean bool) {
+    public void onRemove(BlockState state, Level world, BlockPos pos, BlockState state1, boolean bool) {
         if (!state.is(state1.getBlock())) {
-            TileEntity lvt_6_1_ = worldIn.getBlockEntity(pos);
-            if (lvt_6_1_ instanceof IInventory) {
-                InventoryHelper.dropContents(worldIn, pos, (IInventory) lvt_6_1_);
+            BlockEntity blockentity = world.getBlockEntity(pos);
+            if (blockentity instanceof Container) {
+                Containers.dropContents(world, pos, (Container)blockentity);
             }
-            super.onRemove(state, worldIn, pos, state1, bool);
+            super.onRemove(state, world, pos, state1, bool);
         }
     }
 
     @Override
-    public BlockRenderType getRenderShape(BlockState p_149645_1_) {
-        return BlockRenderType.MODEL;
+    public RenderShape getRenderShape(BlockState p_49090_) {
+        return RenderShape.MODEL;
     }
 
     //BlockState stuff
     @Override
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING, TYPE, WATERLOGGED);
         super.createBlockStateDefinition(builder);
     }
 
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
         BlockPos pos = context.getClickedPos();
         BlockState currentBlock = context.getLevel().getBlockState(pos);
         FluidState fluid = context.getLevel().getFluidState(context.getClickedPos());
@@ -138,7 +126,7 @@ public class ShelfBlock extends ContainerBlock implements IWaterLoggable, ITileE
     }
 
     @Nullable
-    public SlabType getStateSlab(BlockItemUseContext context) {
+    public SlabType getStateSlab(BlockPlaceContext context) {
         BlockPos pos = context.getClickedPos();
 
         Direction clickedFace = context.getClickedFace();
@@ -148,7 +136,7 @@ public class ShelfBlock extends ContainerBlock implements IWaterLoggable, ITileE
         return SlabType.TOP;
     }
 
-    public boolean canBeReplaced(BlockState state, BlockItemUseContext context) {
+    public boolean canBeReplaced(BlockState state, BlockPlaceContext context) {
         ItemStack handIn = context.getItemInHand();
         SlabType slabType = state.getValue(TYPE);
         if (slabType != SlabType.DOUBLE && handIn.getItem() == this.asItem()) {
@@ -168,15 +156,16 @@ public class ShelfBlock extends ContainerBlock implements IWaterLoggable, ITileE
         }
     }
 
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        double[] XY = new double[] {0.0D, 8.0D, 16.0D, 16.0D};
+    public VoxelShape getShape(BlockState state, BlockGetter worldIn, BlockPos pos, CollisionContext collisionContext) {
         Direction direction = state.getValue(FACING);
+
+        double[] XY = new double[] {0.0D, 8.0D, 16.0D, 16.0D};
         if (direction.equals(Direction.EAST)) {
-            XY = new double[]{-(XY[1] -8.0D) +8.0D, XY[0], -(XY[3] -8.0D) +8.0D, XY[2]};
+            XY = new double[]{8.0D, 0.0D, 16.0D, 16.0D};
         } else if (direction.equals(Direction.SOUTH)) {
-            XY = new double[]{-(XY[0] -8.0D)+8.0D, -(XY[1] -8.0D) +8.0D, -(XY[2]-8.0D)+8.0D, -(XY[3] -8.0D) +8.0D};
+            XY = new double[]{0.0D, 0.0D, 16.0D, 8.0D};
         } else if (direction.equals(Direction.WEST)) {
-            XY = new double[] {XY[1], -(XY[0] -8.0D) +8.0D, XY[3], -(XY[2] - 8.0D) +8.0D};
+            XY = new double[]{0.0D, 0.0D, 8.0D, 16.0D};
         }
 
         switch(state.getValue(TYPE)) {
@@ -186,19 +175,11 @@ public class ShelfBlock extends ContainerBlock implements IWaterLoggable, ITileE
             case TOP:
                 return box(XY[0], 8.0D, XY[1], XY[2], 10.0D, XY[3]);
             case DOUBLE:
-                return VoxelShapes.or(
+                return Shapes.or(
                         box(XY[0], 0.0D, XY[1], XY[2], 2.0D, XY[3]),
                         box(XY[0], 8.0D, XY[1], XY[2], 10.0D, XY[3])
                 );
         }
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    @Override
-    public void animateTick(BlockState state, World worldIn, BlockPos pos, Random random) {
-        TileEntity tileEntity = worldIn.getBlockEntity(pos);
-
-        tileEntity.getTileData();
     }
 
     static {

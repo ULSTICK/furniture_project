@@ -1,35 +1,34 @@
 package com.ulstick.sticksdeco.common.blocks;
 
 import com.ulstick.sticksdeco.common.tileentities.CrateTileEntity;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockRenderType;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.ContainerBlock;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.monster.piglin.PiglinTasks;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.IInventory;
-import net.minecraft.inventory.InventoryHelper;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.state.BooleanProperty;
-import net.minecraft.state.DirectionProperty;
-import net.minecraft.state.Property;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.Container;
+import net.minecraft.world.Containers;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.monster.piglin.PiglinAi;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class CrateBlock extends ContainerBlock {
+public class CrateBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING;
     public static final BooleanProperty OPEN;
 
@@ -38,55 +37,56 @@ public class CrateBlock extends ContainerBlock {
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(OPEN, false));
     }
 
-    public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity playerEntity, Hand p_225533_5_, BlockRayTraceResult hit) {
-        if (worldIn.isClientSide) {
-            return ActionResultType.SUCCESS;
-        } else {
-            TileEntity lvt_7_1_ = worldIn.getBlockEntity(pos);
-            if (lvt_7_1_ instanceof CrateTileEntity) {
-                playerEntity.openMenu((CrateTileEntity)lvt_7_1_);
-                PiglinTasks.angerNearbyPiglins(playerEntity, true);
-            }
-
-            return ActionResultType.CONSUME;
-        }
-    }
-
-    public void onRemove(BlockState p_196243_1_, World p_196243_2_, BlockPos p_196243_3_, BlockState p_196243_4_, boolean p_196243_5_) {
-        if (!p_196243_1_.is(p_196243_4_.getBlock())) {
-            TileEntity lvt_6_1_ = p_196243_2_.getBlockEntity(p_196243_3_);
-            if (lvt_6_1_ instanceof IInventory) {
-                InventoryHelper.dropContents(p_196243_2_, p_196243_3_, (IInventory)lvt_6_1_);
-                p_196243_2_.updateNeighbourForOutputSignal(p_196243_3_, this);
-            }
-
-            super.onRemove(p_196243_1_, p_196243_2_, p_196243_3_, p_196243_4_, p_196243_5_);
-        }
-    }
-
     @Override
-    public void tick(BlockState p_225534_1_, ServerWorld p_225534_2_, BlockPos p_225534_3_, Random p_225534_4_) {
-        TileEntity lvt_5_1_ = p_225534_2_.getBlockEntity(p_225534_3_);
-        if (lvt_5_1_ instanceof CrateTileEntity) {
-            ((CrateTileEntity)lvt_5_1_).recheckOpen();
-        }
+    public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        if (worldIn.isClientSide) {
+            return InteractionResult.SUCCESS;
+        } else {
+            BlockEntity blockEntity = worldIn.getBlockEntity(pos);
+            if (blockEntity instanceof CrateTileEntity) {
+                player.openMenu((CrateTileEntity)blockEntity);
+                PiglinAi.angerNearbyPiglins(player, true);
+            }
 
+            return InteractionResult.CONSUME;
+        }
+    }
+
+
+    public void onRemove(BlockState state, Level world, BlockPos pos, BlockState state1, boolean b) {
+        if (!state.is(state1.getBlock())) {
+            BlockEntity blockentity = world.getBlockEntity(pos);
+            if (blockentity instanceof Container) {
+                Containers.dropContents(world, pos, (Container)blockentity);
+                world.updateNeighbourForOutputSignal(pos, this);
+            }
+
+            super.onRemove(state, world, pos, state1, b);
+        }
+    }
+
+
+    public void tick(BlockState p_49060_, ServerLevel p_49061_, BlockPos p_49062_, Random p_49063_) {
+        BlockEntity blockentity = p_49061_.getBlockEntity(p_49062_);
+        if (blockentity instanceof CrateTileEntity) {
+            ((CrateTileEntity)blockentity).recheckOpen();
+        }
     }
 
     @Nullable
-    public TileEntity newBlockEntity(IBlockReader p_196283_1_) {
-        return new CrateTileEntity();
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new CrateTileEntity(pos, state);
     }
 
-    public BlockRenderType getRenderShape(BlockState p_149645_1_) {
-        return BlockRenderType.MODEL;
+    public RenderShape getRenderShape(BlockState p_49090_) {
+        return RenderShape.MODEL;
     }
 
-    public void setPlacedBy(World p_180633_1_, BlockPos p_180633_2_, BlockState p_180633_3_, @Nullable LivingEntity p_180633_4_, ItemStack p_180633_5_) {
-        if (p_180633_5_.hasCustomHoverName()) {
-            TileEntity lvt_6_1_ = p_180633_1_.getBlockEntity(p_180633_2_);
+    public void setPlacedBy(Level world, BlockPos pos, BlockState state, @Nullable LivingEntity entity, ItemStack itemStack) {
+        if (itemStack.hasCustomHoverName()) {
+            BlockEntity lvt_6_1_ = world.getBlockEntity(pos);
             if (lvt_6_1_ instanceof CrateTileEntity) {
-                ((CrateTileEntity)lvt_6_1_).setCustomName(p_180633_5_.getHoverName());
+                ((CrateTileEntity)lvt_6_1_).setCustomName(itemStack.getHoverName());
             }
         }
     }
@@ -95,8 +95,8 @@ public class CrateBlock extends ContainerBlock {
         return true;
     }
 
-    public int getAnalogOutputSignal(BlockState p_180641_1_, World p_180641_2_, BlockPos p_180641_3_) {
-        return Container.getRedstoneSignalFromBlockEntity(p_180641_2_.getBlockEntity(p_180641_3_));
+    public int getAnalogOutputSignal(BlockState state, Level world, BlockPos pos) {
+        return AbstractContainerMenu.getRedstoneSignalFromBlockEntity(world.getBlockEntity(pos));
     }
 
     public BlockState rotate(BlockState p_185499_1_, Rotation p_185499_2_) {
@@ -107,12 +107,12 @@ public class CrateBlock extends ContainerBlock {
         return p_185471_1_.rotate(p_185471_2_.getRotation((Direction)p_185471_1_.getValue(FACING)));
     }
 
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> p_206840_1_) {
-        p_206840_1_.add(new Property[]{FACING, OPEN});
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_206840_1_) {
+        p_206840_1_.add(FACING, OPEN);
     }
 
-    public BlockState getStateForPlacement(BlockItemUseContext p_196258_1_) {
-        return this.defaultBlockState().setValue(FACING, p_196258_1_.getNearestLookingDirection().getOpposite());
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        return this.defaultBlockState().setValue(FACING, context.getNearestLookingDirection().getOpposite());
     }
 
     static {
