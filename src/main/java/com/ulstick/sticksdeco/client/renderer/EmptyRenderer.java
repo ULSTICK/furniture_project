@@ -10,7 +10,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class EmptyRenderer extends EntityRenderer<SeatDummy> {
-    protected EmptyRenderer(EntityRendererProvider.Context p_174008_) {
+    public EmptyRenderer(EntityRendererProvider.Context p_174008_) {
         super(p_174008_);
     }
     @Override

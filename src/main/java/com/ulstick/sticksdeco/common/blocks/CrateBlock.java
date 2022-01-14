@@ -22,7 +22,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nullable;
@@ -52,7 +51,6 @@ public class CrateBlock extends BaseEntityBlock {
         }
     }
 
-
     public void onRemove(BlockState state, Level world, BlockPos pos, BlockState state1, boolean b) {
         if (!state.is(state1.getBlock())) {
             BlockEntity blockentity = world.getBlockEntity(pos);
@@ -66,8 +64,8 @@ public class CrateBlock extends BaseEntityBlock {
     }
 
 
-    public void tick(BlockState p_49060_, ServerLevel p_49061_, BlockPos p_49062_, Random p_49063_) {
-        BlockEntity blockentity = p_49061_.getBlockEntity(p_49062_);
+    public void tick(BlockState state, ServerLevel serverWorld, BlockPos pos, Random random) {
+        BlockEntity blockentity = serverWorld.getBlockEntity(pos);
         if (blockentity instanceof CrateTileEntity) {
             ((CrateTileEntity)blockentity).recheckOpen();
         }
@@ -99,12 +97,14 @@ public class CrateBlock extends BaseEntityBlock {
         return AbstractContainerMenu.getRedstoneSignalFromBlockEntity(world.getBlockEntity(pos));
     }
 
+    // BlockState stuff
+
     public BlockState rotate(BlockState p_185499_1_, Rotation p_185499_2_) {
-        return p_185499_1_.setValue(FACING, p_185499_2_.rotate((Direction)p_185499_1_.getValue(FACING)));
+        return p_185499_1_.setValue(FACING, p_185499_2_.rotate(p_185499_1_.getValue(FACING)));
     }
 
     public BlockState mirror(BlockState p_185471_1_, Mirror p_185471_2_) {
-        return p_185471_1_.rotate(p_185471_2_.getRotation((Direction)p_185471_1_.getValue(FACING)));
+        return p_185471_1_.rotate(p_185471_2_.getRotation(p_185471_1_.getValue(FACING)));
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> p_206840_1_) {

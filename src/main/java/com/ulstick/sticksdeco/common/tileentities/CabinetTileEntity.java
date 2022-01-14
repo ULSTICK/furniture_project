@@ -17,9 +17,9 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ChestMenu;
+import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.BarrelBlock;
 import net.minecraft.world.level.block.entity.ContainerOpenersCounter;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -27,14 +27,14 @@ import net.minecraft.world.level.block.state.BlockState;
 public class CabinetTileEntity extends RandomizableContainerBlockEntity {
     private NonNullList<ItemStack> items = NonNullList.withSize(18, ItemStack.EMPTY);
     private ContainerOpenersCounter openersCounter = new ContainerOpenersCounter() {
-        protected void onOpen(Level p_155062_, BlockPos p_155063_, BlockState p_155064_) {
-            CabinetTileEntity.this.playSound(p_155064_, SoundEvents.BARREL_OPEN);
-            CabinetTileEntity.this.updateBlockState(p_155064_, true);
+        protected void onOpen(Level worldIn, BlockPos pos, BlockState state) {
+            CabinetTileEntity.this.playSound(state, SoundEvents.FENCE_GATE_OPEN);
+            CabinetTileEntity.this.updateBlockState(state, true);
         }
 
-        protected void onClose(Level p_155072_, BlockPos p_155073_, BlockState p_155074_) {
-            CabinetTileEntity.this.playSound(p_155074_, SoundEvents.BARREL_CLOSE);
-            CabinetTileEntity.this.updateBlockState(p_155074_, false);
+        protected void onClose(Level worldIn, BlockPos pos, BlockState state) {
+            CabinetTileEntity.this.playSound(state, SoundEvents.FENCE_GATE_CLOSE);
+            CabinetTileEntity.this.updateBlockState(state, false);
         }
 
         protected void openerCountChanged(Level p_155066_, BlockPos p_155067_, BlockState p_155068_, int p_155069_, int p_155070_) {
@@ -54,19 +54,28 @@ public class CabinetTileEntity extends RandomizableContainerBlockEntity {
         super(ModTileEntity.CABINET_TILE.get(), p_155052_, p_155053_);
     }
 
+    @Override
     protected void saveAdditional(CompoundTag nbt) {
         super.saveAdditional(nbt);
+        this.saveMetadataAndItems(nbt);
         if (!this.trySaveLootTable(nbt)) {
             ContainerHelper.saveAllItems(nbt, this.items);
         }
     }
 
+    private CompoundTag saveMetadataAndItems(CompoundTag nbt) {
+        super.save(nbt);
+        ContainerHelper.saveAllItems(nbt, this.items, true);
+        return nbt;
+    }
+
+    @Override
     public void load(CompoundTag nbt) {
-        super.load(nbt);
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         if (!this.tryLoadLootTable(nbt)) {
             ContainerHelper.loadAllItems(nbt, this.items);
         }
+        super.load(nbt);
     }
 
     public int getContainerSize() {
@@ -86,7 +95,7 @@ public class CabinetTileEntity extends RandomizableContainerBlockEntity {
     }
 
     protected AbstractContainerMenu createMenu(int slot, Inventory inventory) {
-        return ChestMenu.threeRows(slot, inventory, this);
+        return new ChestMenu(MenuType.GENERIC_9x2, slot, inventory, this, 2);
     }
 
     public void startOpen(Player player) {
@@ -112,7 +121,7 @@ public class CabinetTileEntity extends RandomizableContainerBlockEntity {
     }
 
     void playSound(BlockState state, SoundEvent soundEvent) {
-        Vec3i vec3i = state.getValue(BarrelBlock.FACING).getNormal();
+        Vec3i vec3i = state.getValue(CabinetBlock.FACING).getNormal();
         double d0 = (double)this.worldPosition.getX() + 0.5D + (double)vec3i.getX() / 2.0D;
         double d1 = (double)this.worldPosition.getY() + 0.5D + (double)vec3i.getY() / 2.0D;
         double d2 = (double)this.worldPosition.getZ() + 0.5D + (double)vec3i.getZ() / 2.0D;

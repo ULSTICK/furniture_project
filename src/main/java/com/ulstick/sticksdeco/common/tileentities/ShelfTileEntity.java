@@ -25,11 +25,13 @@ public class ShelfTileEntity extends RandomizableContainerBlockEntity {
         super(ModTileEntity.SHELF_TILE.get(), p_155052_, p_155053_);
     }
 
-    protected void saveAdditional(CompoundTag nbt) {
+    @Override
+    public CompoundTag save(CompoundTag nbt) {
         this.saveMetadataAndItems(nbt);
         if (!this.trySaveLootTable(nbt)) {
             ContainerHelper.saveAllItems(nbt, this.items);
         }
+        return nbt;
     }
 
     private CompoundTag saveMetadataAndItems(CompoundTag nbt) {
@@ -96,7 +98,8 @@ public class ShelfTileEntity extends RandomizableContainerBlockEntity {
 
 
     //public ClientboundBlockEntityDataPacket getUpdatePacket(){
-    //    return new ClientboundBlockEntityDataPacket(this.getBlockPos(), -1, this.getUpdateTag());
+    //    //return new ClientboundBlockEntityDataPacket(this.getBlockPos(), -1, this.getUpdateTag());
+    //    return new ClientboundBlockEntityDataPacket();
     //}
 
     public CompoundTag getUpdateTag() {
@@ -108,7 +111,7 @@ public class ShelfTileEntity extends RandomizableContainerBlockEntity {
         if (this.level == null) return;
 
         //this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), Constants.BlockFlags.BLOCK_UPDATE);
-        this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), -1);
+        this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), 1);
     }
 
     @Override

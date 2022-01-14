@@ -29,7 +29,6 @@ import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.common.property.Properties;
 
 import javax.annotation.Nullable;
 import java.util.Objects;
@@ -46,14 +45,15 @@ public class CabinetBlock extends BaseEntityBlock implements SimpleWaterloggedBl
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(WATERLOGGED, false).setValue(OPEN, false));
     }
 
-    public InteractionResult use(BlockState p_225533_1_, Level p_225533_2_, BlockPos p_225533_3_, Player p_225533_4_, InteractionHand p_225533_5_, BlockHitResult p_225533_6_) {
-        boolean frontInteract = p_225533_6_.getDirection() == p_225533_1_.getValue(FACING);
-        if (p_225533_2_.isClientSide) {
+    @Override
+    public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+        boolean frontInteract = hit.getDirection() == state.getValue(FACING);
+        if (worldIn.isClientSide) {
             return InteractionResult.SUCCESS;
         } else if (frontInteract) {
-            BlockEntity lvt_7_1_ = p_225533_2_.getBlockEntity(p_225533_3_);
+            BlockEntity lvt_7_1_ = worldIn.getBlockEntity(pos);
             if (lvt_7_1_ instanceof CabinetTileEntity) {
-                p_225533_4_.openMenu((CabinetTileEntity)lvt_7_1_);
+                player.openMenu((CabinetTileEntity)lvt_7_1_);
             }
 
             return InteractionResult.CONSUME;
@@ -74,8 +74,8 @@ public class CabinetBlock extends BaseEntityBlock implements SimpleWaterloggedBl
     }
 
     @Override
-    public void tick(BlockState p_225534_1_, ServerLevel p_225534_2_, BlockPos p_225534_3_, Random p_225534_4_) {
-        BlockEntity lvt_5_1_ = p_225534_2_.getBlockEntity(p_225534_3_);
+    public void tick(BlockState state, ServerLevel serverWorld, BlockPos pos, Random random) {
+        BlockEntity lvt_5_1_ = serverWorld.getBlockEntity(pos);
         if (lvt_5_1_ instanceof CabinetTileEntity) {
             ((CabinetTileEntity)lvt_5_1_).recheckOpen();
         }
@@ -107,20 +107,22 @@ public class CabinetBlock extends BaseEntityBlock implements SimpleWaterloggedBl
         return AbstractContainerMenu.getRedstoneSignalFromBlockEntity(world.getBlockEntity(pos));
     }
 
+    // BlockState stuff
+
     public BlockState rotate(BlockState p_185499_1_, Rotation p_185499_2_) {
         return p_185499_1_.setValue(FACING, p_185499_2_.rotate(p_185499_1_.getValue(FACING)));
     }
 
     public BlockState mirror(BlockState p_185471_1_, Mirror p_185471_2_) {
-        return p_185471_1_.rotate(p_185471_2_.getRotation((Direction)p_185471_1_.getValue(FACING)));
-    }
-
-    public static boolean connectsToDirection(BlockState p_220253_0_, Direction p_220253_1_) {
-        return p_220253_0_.getValue(FACING).getAxis() == p_220253_1_.getClockWise().getAxis();
+        return p_185471_1_.rotate(p_185471_2_.getRotation(p_185471_1_.getValue(FACING)));
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> stateBuilder) {
         stateBuilder.add(FACING, WATERLOGGED, OPEN, ALTERNATE);
+    }
+
+    public static boolean connectsToDirection(BlockState p_220253_0_, Direction p_220253_1_) {
+        return p_220253_0_.getValue(FACING).getAxis() == p_220253_1_.getClockWise().getAxis();
     }
 
     public BlockState getStateForPlacement(BlockPlaceContext context) {
