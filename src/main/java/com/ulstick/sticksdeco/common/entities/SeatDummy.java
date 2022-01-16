@@ -42,7 +42,7 @@ public class SeatDummy extends Entity {
     public void tick() {
         BlockState block = getBlockStateOn();
         if (block.is(Blocks.AIR) || block.is(Blocks.CAVE_AIR)) {
-            this.remove(null);
+            this.remove(RemovalReason.DISCARDED);
         }
     }
 

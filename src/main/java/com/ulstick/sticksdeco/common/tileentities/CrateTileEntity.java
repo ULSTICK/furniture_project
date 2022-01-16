@@ -54,21 +54,6 @@ public class CrateTileEntity extends RandomizableContainerBlockEntity {
     }
 
     @Override
-    protected void saveAdditional(CompoundTag nbt) {
-        //super.saveAdditional(nbt);
-        this.saveMetadataAndItems(nbt);
-        if (!this.trySaveLootTable(nbt)) {
-            ContainerHelper.saveAllItems(nbt, this.items);
-        }
-    }
-
-    private CompoundTag saveMetadataAndItems(CompoundTag nbt) {
-        super.save(nbt);
-        ContainerHelper.saveAllItems(nbt, this.items, true);
-        return nbt;
-    }
-
-    @Override
     public void load(CompoundTag nbt) {
         super.load(nbt);
         this.items = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
@@ -77,21 +62,28 @@ public class CrateTileEntity extends RandomizableContainerBlockEntity {
         }
     }
 
-    public int getContainerSize() {
-        return 27;
+    @Override
+    public CompoundTag save(CompoundTag nbt) {
+        if (!this.trySaveLootTable(nbt)) {
+            ContainerHelper.saveAllItems(nbt, this.items, true);
+        }
+        return nbt;
     }
 
-    protected NonNullList<ItemStack> getItems() {
-        return this.items;
-    }
+    //protected void saveAdditional(CompoundTag nbt) {
+    //    super.saveAdditional(nbt);
+    //    if (!this.trySaveLootTable(nbt)) {
+    //        ContainerHelper.saveAllItems(nbt, this.items, true);
+    //    }
+    //}
 
-    protected void setItems(NonNullList<ItemStack> itemStacks) {
-        this.items = itemStacks;
-    }
+    public int getContainerSize() { return 27; }
 
-    protected Component getDefaultName() {
-        return new TranslatableComponent("container.sticksdeco.crate");
-    }
+    protected NonNullList<ItemStack> getItems() { return this.items; }
+
+    protected void setItems(NonNullList<ItemStack> itemStacks) { this.items = itemStacks; }
+
+    protected Component getDefaultName() { return new TranslatableComponent("container.sticksdeco.crate"); }
 
     protected AbstractContainerMenu createMenu(int slot, Inventory inventory) {
         return ChestMenu.threeRows(slot, inventory, this);

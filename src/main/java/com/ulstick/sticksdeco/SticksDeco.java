@@ -40,7 +40,6 @@ public class SticksDeco
         //ModContainer.register(eventBus);
 
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -59,9 +58,5 @@ public class SticksDeco
         BlockEntityRenderers.register(ModTileEntity.SHELF_TILE.get(), ShelfRenderer::new);
         //RenderingRegistry.registerEntityRenderingHandler(ModEntity.SEAT_DUMMY.get(), EmptyRenderer::new);
         //ClientRegistry.bindTileEntityRenderer(ModTileEntity.SHELF_TILE.get(), ShelfRenderer::new);
-    }
-
-    private void doEntityRendering(final EntityRenderersEvent.RegisterRenderers event) {
-        event.registerBlockEntityRenderer(ModTileEntity.SHELF_TILE.get(), ShelfRenderer::new);
     }
 }

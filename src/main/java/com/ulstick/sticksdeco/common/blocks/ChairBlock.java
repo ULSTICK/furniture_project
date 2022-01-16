@@ -79,4 +79,10 @@ public class ChairBlock extends FurnitureBlock {
         }
         return InteractionResult.PASS;
     }
+
+    @Override
+    public void onRemove(BlockState state, Level worldIn, BlockPos pos, BlockState state1, boolean bool) {
+        List<SeatDummy> seats = worldIn.getEntitiesOfClass(SeatDummy.class, new AABB(pos));
+        seats.remove(0);
+    }
 }

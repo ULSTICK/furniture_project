@@ -16,7 +16,7 @@ public class ModTileEntity {
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, SticksDeco.MOD_ID);
 
     public static RegistryObject<BlockEntityType<CrateTileEntity>> CRATE_TILE = TILE_ENTITIES.register("crate_tile_entity",
-            () -> BlockEntityType.Builder.of(CrateTileEntity::new, ModBlock.OAK_CRATE.get()).build(null));
+            () -> BlockEntityType.Builder.of(CrateTileEntity::new, ModBlock.OAK_CRATE.get(), ModBlock.SPRUCE_CRATE.get(), ModBlock.BIRCH_CRATE.get(), ModBlock.JUNGLE_CRATE.get(), ModBlock.ACACIA_CRATE.get(), ModBlock.DARK_OAK_CRATE.get(), ModBlock.CRIMSON_CRATE.get(), ModBlock.WARPED_CRATE.get(), ModBlock.METAL_CRATE.get()).build(null));
 
     public static RegistryObject<BlockEntityType<CabinetTileEntity>> CABINET_TILE = TILE_ENTITIES.register("cabinet_tile_entity",
             () -> BlockEntityType.Builder.of(CabinetTileEntity::new, ModBlock.OAK_CABINET.get()).build(null));
